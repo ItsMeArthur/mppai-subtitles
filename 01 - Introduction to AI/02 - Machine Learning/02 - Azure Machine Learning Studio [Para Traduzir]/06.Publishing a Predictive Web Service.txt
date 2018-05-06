@@ -1,0 +1,760 @@
+0
+00:00:01,000 --> 00:00:04,606
+Bem, tendo criado e testado um modelo, você pode publicá-lo
+
+1
+00:00:04,606 --> 00:00:08,518
+como um experimento preditivo e, em seguida, implantá-lo como um serviço da web.
+
+2
+00:00:08,518 --> 00:00:11,835
+Então, aqui estou no Azure Machine Learning Studio.
+
+3
+00:00:11,835 --> 00:00:14,920
+E eu tenho o experimento de classificação de diabetes que
+
+4
+00:00:14,920 --> 00:00:16,042
+vimos anteriormente.
+
+5
+00:00:16,042 --> 00:00:19,060
+Então, eu fiz o experimento, e eu testei.
+
+6
+00:00:19,060 --> 00:00:22,230
+E se você se lembra eu estou recebendo um bom ROC
+
+7
+00:00:22,230 --> 00:00:23,805
+curva no final disso que me diz,
+
+8
+00:00:23,805 --> 00:00:26,210
+está prevendo muito bem como classificador,
+
+9
+00:00:26,210 --> 00:00:30,020
+se é provável que um paciente tenha diabetes ou não.
+
+10
+00:00:31,050 --> 00:00:33,796
+Então, o que eu quero fazer é publicar isso como uma web
+
+11
+00:00:33,796 --> 00:00:37,538
+serviço que eu posso consumir dos aplicativos clientes.
+
+12
+00:00:37,538 --> 00:00:40,015
+Então, para fazer isso, primeiro de tudo, preciso executar o experimento,
+
+13
+00:00:40,015 --> 00:00:41,187
+que já fiz.
+
+14
+00:00:41,187 --> 00:00:43,658
+Você pode ver que tenho pequenos tiques lá que foram executados.
+
+15
+00:00:43,658 --> 00:00:46,534
+Então agora posso configurar um serviço da web.
+
+16
+00:00:46,534 --> 00:00:49,798
+E o tipo de serviço da web que eu vou configurar aqui é
+
+17
+00:00:49,798 --> 00:00:51,596
+um serviço da web preditivo.
+
+18
+00:00:51,596 --> 00:00:54,799
+Então, vamos e escolhemos isso.
+
+19
+00:00:54,799 --> 00:00:55,657
+E o que isso vai fazer
+
+20
+00:00:55,657 --> 00:00:56,963
+é que vai correr em segundo plano,
+
+21
+00:00:56,963 --> 00:00:59,690
+está criando algo chamado experimento preditivo.
+
+22
+00:00:59,690 --> 00:01:03,087
+E você verá algumas coisas por aqui.
+
+23
+00:01:03,087 --> 00:01:04,285
+E quando terminar,
+
+24
+00:01:04,285 --> 00:01:06,357
+Acabo de fechar essa pequena notificação.
+
+25
+00:01:06,357 --> 00:01:08,080
+E você pode ver que, na verdade, agora tenho duas guias.
+
+26
+00:01:08,080 --> 00:01:12,671
+Eu tenho meu experimento de treinamento original que foi chamado
+
+27
+00:01:12,671 --> 00:01:13,598
+Diabetes.
+
+28
+00:01:13,598 --> 00:01:16,456
+E agora eu tenho esse experimento preditivo
+
+29
+00:01:16,456 --> 00:01:19,672
+que é chamado Diabetes [Predictive Exp.], mas
+
+30
+00:01:19,672 --> 00:01:22,400
+o que não é realmente particularmente útil.
+
+31
+00:01:22,400 --> 00:01:27,278
+Então, eu vou mudar isso para o Diabetes Predictor,
+
+32
+00:01:27,278 --> 00:01:30,254
+para que eu saiba o que é essa coisa.
+
+33
+00:01:30,254 --> 00:01:31,988
+Agora, o que é realmente diferente sobre esse experimento?
+
+34
+00:01:31,988 --> 00:01:33,817
+Bem, copiou muitos dos módulos de
+
+35
+00:01:33,817 --> 00:01:35,110
+o outro experimento.
+
+36
+00:01:35,110 --> 00:01:37,816
+Você não pode ver muito claramente, então
+
+37
+00:01:37,816 --> 00:01:41,424
+Eu só vou dar um pouco de espaço para trabalhar, e
+
+38
+00:01:41,424 --> 00:01:46,124
+centre tudo, e certifique-se de que podemos ver o que está acontecendo.
+
+39
+00:01:46,124 --> 00:01:49,310
+Então, vamos ampliar um pouco e dar uma olhada.
+
+40
+00:01:49,310 --> 00:01:54,000
+Então, recebemos nossa contribuição aqui, nossa contribuição para diabetes.
+
+41
+00:01:54,000 --> 00:01:57,820
+E também recebi essa entrada de serviço da web aqui.
+
+42
+00:01:57,820 --> 00:02:02,931
+Então, você pode ver que eles estão conectados ao mesmo lugar.
+
+43
+00:02:02,931 --> 00:02:04,427
+E o que estamos dizendo é:
+
+44
+00:02:04,427 --> 00:02:06,336
+quando executamos isso como uma experiência no Studio,
+
+45
+00:02:06,336 --> 00:02:09,290
+nós vamos usar os dados que estão no diabetes CSV.
+
+46
+00:02:09,289 --> 00:02:11,050
+Mas quando eu realmente publico isso como um serviço web,
+
+47
+00:02:11,050 --> 00:02:12,870
+a entrada virá do serviço da web.
+
+48
+00:02:12,870 --> 00:02:15,460
+O aplicativo cliente enviará os novos dados
+
+49
+00:02:15,460 --> 00:02:17,320
+Isso me diz o que eu quero olhar.
+
+50
+00:02:18,640 --> 00:02:20,465
+Então nós vamos juntar isso aos dados do nosso médico,
+
+51
+00:02:20,465 --> 00:02:23,520
+aplicaremos as mesmas operações matemáticas que fizemos anteriormente.
+
+52
+00:02:23,520 --> 00:02:24,930
+Então, há algumas outras coisas acontecendo aqui.
+
+53
+00:02:24,930 --> 00:02:28,680
+Em vez de ter esse módulo de dados normalizado que nós
+
+54
+00:02:28,680 --> 00:02:31,160
+se isso acontecesse, aplicar transformação.
+
+55
+00:02:31,160 --> 00:02:34,130
+E é encapsulado a normalização que eu fiz
+
+56
+00:02:34,130 --> 00:02:34,780
+no meu experimento.
+
+57
+00:02:34,780 --> 00:02:37,820
+Em outras palavras, vai aplicar o mesmo
+
+58
+00:02:37,820 --> 00:02:41,230
+medições dos dados quando normaliza novos dados
+
+59
+00:02:41,230 --> 00:02:41,990
+que vem dentro
+
+60
+00:02:41,990 --> 00:02:44,540
+Então, qualquer que seja a estatística dos meus dados de teste,
+
+61
+00:02:44,540 --> 00:02:46,070
+ou meus dados de treinamento,
+
+62
+00:02:46,070 --> 00:02:49,340
+é o que será usado para novos dados que forem recebidos.
+
+63
+00:02:49,340 --> 00:02:52,190
+E isso faz sentido porque se você pensar sobre isso,
+
+64
+00:02:52,190 --> 00:02:55,353
+podemos chamar isso com novos dados que, ou talvez apenas
+
+65
+00:02:55,353 --> 00:02:58,480
+tem uma regra de dados e tenta normalizar essa regra.
+
+66
+00:02:58,480 --> 00:03:01,198
+Tentar obter todos os valores dentro da mesma escala não é
+
+67
+00:03:01,198 --> 00:03:02,620
+realmente faz sentido.
+
+68
+00:03:02,620 --> 00:03:04,130
+Então, nós recebemos um erro nesse caso.
+
+69
+00:03:04,130 --> 00:03:07,697
+Então, o que vai fazer é usar as mesmas estatísticas
+
+70
+00:03:07,697 --> 00:03:10,990
+e aplicar a mesma lógica de normalização que ele fez quando
+
+71
+00:03:10,990 --> 00:03:12,168
+treinou o modelo.
+
+72
+00:03:12,168 --> 00:03:14,421
+E isso vai fazer isso para ambas as minhas normalizações.
+
+73
+00:03:14,421 --> 00:03:17,429
+Nós obviamente não vamos tratar a ID do paciente e
+
+74
+00:03:17,429 --> 00:03:20,846
+médico como recursos preditivos e, em seguida,
+
+75
+00:03:20,846 --> 00:03:24,780
+modelo treinado que treinamos em nosso experimento de treinamento.
+
+76
+00:03:24,780 --> 00:03:26,170
+Então, não precisamos reciclar isso,
+
+77
+00:03:26,170 --> 00:03:27,860
+nós vamos ir em frente e
+
+78
+00:03:27,860 --> 00:03:30,430
+usar o que treinamos quando treinamos o modelo, e
+
+79
+00:03:30,430 --> 00:03:33,260
+é isso que vamos usar para pontuar nossos resultados.
+
+80
+00:03:33,260 --> 00:03:35,900
+E então esses resultados serão passados
+
+81
+00:03:35,900 --> 00:03:37,610
+como a saída do servidor da web.
+
+82
+00:03:37,610 --> 00:03:40,780
+Então, é um pouco diferente do nosso experimento original.
+
+83
+00:03:41,820 --> 00:03:43,934
+Agora, há algumas coisas que quero mudar aqui antes
+
+84
+00:03:43,934 --> 00:03:45,640
+Publico isso como um serviço da web.
+
+85
+00:03:45,640 --> 00:03:49,099
+Esta entrada de serviço da web é o que meus aplicativos clientes vão
+
+86
+00:03:49,099 --> 00:03:50,729
+tem que fornecer como entrada, e
+
+87
+00:03:50,729 --> 00:03:53,991
+é baseado no que temos no arquivo CSV de diabetes e
+
+88
+00:03:53,991 --> 00:03:59,664
+se eu apenas lembrar você do que é isso, Ele inclui
+
+89
+00:03:59,664 --> 00:04:04,120
+o rótulo diabético, se o paciente é diabético ou não.
+
+90
+00:04:04,120 --> 00:04:07,270
+Agora, isso realmente não faz sentido que um aplicativo cliente
+
+91
+00:04:07,270 --> 00:04:10,580
+já saberia se o paciente é diabético e
+
+92
+00:04:10,580 --> 00:04:13,500
+depois, peça que você preveja se o paciente é diabético ou não.
+
+93
+00:04:13,500 --> 00:04:16,430
+Então, o que vamos fazer é remover esse conjunto de dados.
+
+94
+00:04:16,430 --> 00:04:19,070
+Não quero que minha entrada seja baseada nisso.
+
+95
+00:04:19,070 --> 00:04:21,520
+E em vez disso eu quero que seja baseado em
+
+96
+00:04:21,519 --> 00:04:23,770
+uma entrada manual que eu vou definir.
+
+97
+00:04:23,770 --> 00:04:26,020
+Eu poderia simplesmente ir e apontar para outro arquivo ou algo assim, mas
+
+98
+00:04:26,020 --> 00:04:28,550
+Eu só vou inserir os dados manualmente e
+
+99
+00:04:28,550 --> 00:04:31,700
+digamos que isso é o que eu quero que minha entrada seja.
+
+100
+00:04:31,700 --> 00:04:35,330
+Então, precisamos especificar o que obviamente parece
+
+101
+00:04:35,330 --> 00:04:37,440
+Então, digamos que digita isso em.
+
+102
+00:04:37,440 --> 00:04:41,550
+Então, ele será CSV e terá um cabeçalho.
+
+103
+00:04:41,550 --> 00:04:44,920
+Então, vamos seguir em frente e eu já tenho um texto aqui,
+
+104
+00:04:44,920 --> 00:04:46,460
+então vamos colá-lo.
+
+105
+00:04:46,460 --> 00:04:50,020
+Então eu tenho meus dados lá, e eu só tenho algumas linhas de
+
+106
+00:04:50,020 --> 00:04:53,310
+dados de amostra, e não inclui a coluna diabética.
+
+107
+00:04:53,310 --> 00:04:55,560
+Se formos ao longo do final, a última coluna é a idade.
+
+108
+00:04:55,560 --> 00:04:59,160
+Então, nós temos nossos dados lá que queremos ir e
+
+109
+00:04:59,160 --> 00:05:00,257
+prever com.
+
+110
+00:05:00,257 --> 00:05:03,543
+Agora o que isso significa é todo o caminho até o resto da minha
+
+111
+00:05:03,543 --> 00:05:07,196
+experimentar se eu usei essa coluna, se eu referenciei que
+
+112
+00:05:07,196 --> 00:05:09,626
+coluna em qualquer lugar eu preciso me livrar dele.
+
+113
+00:05:09,626 --> 00:05:12,357
+Então, eu vou passar e verificar e
+
+114
+00:05:12,357 --> 00:05:16,417
+certifique-se de que não usamos nossa coluna de diabéticos em nenhum lugar
+
+115
+00:05:16,417 --> 00:05:20,180
+dos outros locais, ID do paciente, mas não diabético.
+
+116
+00:05:20,180 --> 00:05:22,741
+Não nos referimos a isso, por isso, não precisamos ir e
+
+117
+00:05:22,741 --> 00:05:23,290
+remova.
+
+118
+00:05:23,290 --> 00:05:24,022
+Eu acho que se eu tivesse
+
+119
+00:05:24,022 --> 00:05:26,230
+Eu precisaria removê-lo de todos os módulos que estavam usando.
+
+120
+00:05:27,480 --> 00:05:30,994
+Então, vamos em frente e executamos isso apenas para ver como é
+
+121
+00:05:30,994 --> 00:05:34,378
+com esses dados de teste apenas para garantir que tudo funcione.
+
+122
+00:05:45,042 --> 00:05:45,764
+E quando terminar
+
+123
+00:05:45,764 --> 00:05:47,170
+Eu tenho pequenos carrapatos durante todo o tempo.
+
+124
+00:05:47,170 --> 00:05:48,780
+Parece ter funcionado.
+
+125
+00:05:48,780 --> 00:05:50,740
+Se eu apenas ver a saída disso.
+
+126
+00:05:52,040 --> 00:05:54,270
+Isto é o que vai ser passado de volta para o cliente.
+
+127
+00:05:54,270 --> 00:05:56,740
+Agora vai incluir coisas como o ID do paciente,
+
+128
+00:05:56,740 --> 00:05:58,300
+as gravidezes, a glicose plasmática.
+
+129
+00:05:58,300 --> 00:06:01,150
+Em outras palavras, todos os mesmos campos que o cliente
+
+130
+00:06:01,150 --> 00:06:04,150
+aplicação passada em primeiro lugar, bem como
+
+131
+00:06:04,150 --> 00:06:06,400
+os rótulos marcados e probabilidades marcadas.
+
+132
+00:06:06,400 --> 00:06:09,510
+E os rótulos marcados e probabilidades marcadas não são realmente muito
+
+133
+00:06:09,510 --> 00:06:12,280
+nomes de saída significativos.
+
+134
+00:06:12,280 --> 00:06:14,670
+Então eu provavelmente quero mudar e
+
+135
+00:06:14,670 --> 00:06:17,950
+basta retornar a informação que o cliente realmente se preocupa.
+
+136
+00:06:18,950 --> 00:06:22,080
+E para fazer isso, vou adicionar um modelo SQL aqui e
+
+137
+00:06:22,080 --> 00:06:23,988
+aplique o módulo de transformação SQL.
+
+138
+00:06:23,988 --> 00:06:27,791
+E vai levar a saída do nosso modelo marcado e
+
+139
+00:06:27,791 --> 00:06:32,302
+vamos adicioná-lo a isso e, em seguida, faremos a saída do SQL
+
+140
+00:06:32,302 --> 00:06:35,591
+seja o que passamos para a saída do serviço da web.
+
+141
+00:06:35,591 --> 00:06:38,240
+E então, vamos apenas modificar esse script SQL.
+
+142
+00:06:38,240 --> 00:06:39,434
+Então, nós apenas vamos e
+
+143
+00:06:39,434 --> 00:06:42,115
+substitua isso por algum código existente que eu tenha.
+
+144
+00:06:44,661 --> 00:06:45,730
+E aqui está o meu código.
+
+145
+00:06:45,730 --> 00:06:48,180
+Eu estou basicamente recebendo o ID do paciente e o médico.
+
+146
+00:06:48,180 --> 00:06:50,700
+Então, posso estar interessado em saber quem é o médico desse paciente?
+
+147
+00:06:50,700 --> 00:06:54,498
+Eu posso precisar informá-los que queremos testá-los ainda mais
+
+148
+00:06:54,498 --> 00:06:55,250
+diabetes.
+
+149
+00:06:55,250 --> 00:06:57,490
+Os Rótulos Marcados, daremos um nome diferente.
+
+150
+00:06:57,490 --> 00:06:59,317
+Nós vamos chamar isso de DiabetesPrediction e
+
+151
+00:06:59,317 --> 00:07:01,724
+Probabilidades pontuadas, apenas chamaremos Probabilidade.
+
+152
+00:07:09,364 --> 00:07:13,396
+Por isso, salvamos essas alterações e estamos prontos para ir
+
+153
+00:07:13,396 --> 00:07:17,515
+basta executar esse experimento mais uma vez só para ter certeza
+
+154
+00:07:17,515 --> 00:07:19,048
+tudo funciona.
+
+155
+00:07:35,466 --> 00:07:38,894
+E se eu der uma olhada no que vai ser retornado para a web
+
+156
+00:07:38,894 --> 00:07:40,189
+cliente de serviço agora.
+
+157
+00:07:40,189 --> 00:07:43,721
+Eu tenho a identificação do paciente, o médico, o diabetes
+
+158
+00:07:43,721 --> 00:07:47,870
+previsão, um ou um zero e, em seguida, a probabilidade para isso.
+
+159
+00:07:47,870 --> 00:07:52,220
+Então você pode ver que nós construímos nosso experimento para treinar nossos
+
+160
+00:07:52,220 --> 00:07:56,333
+modelo, publicamos isso como uma experiência preditiva.
+
+161
+00:07:56,333 --> 00:07:59,340
+Fiz algumas alterações na experiência preditiva.
+
+162
+00:07:59,340 --> 00:08:02,040
+Apenas para afetar o modo como será publicado
+
+163
+00:08:02,040 --> 00:08:03,350
+nossos clientes.
+
+164
+00:08:03,350 --> 00:08:06,166
+Então, agora estou pronto para implantá-lo como um serviço da Web e
+
+165
+00:08:06,166 --> 00:08:08,246
+Eu realmente tenho algumas escolhas,
+
+166
+00:08:08,246 --> 00:08:11,801
+existe o que chamamos de serviço web clássico compatível
+
+167
+00:08:11,801 --> 00:08:15,244
+com a versão autônoma do Azure e o aprendizado de máquina.
+
+168
+00:08:15,244 --> 00:08:17,839
+Mas também recebemos esse novo serviço da web,
+
+169
+00:08:17,839 --> 00:08:21,190
+Vou implantar usando essa carga o pop-up.
+
+170
+00:08:27,650 --> 00:08:30,650
+E vai implantar isso como um serviço da web e dar um nome,
+
+171
+00:08:30,650 --> 00:08:33,390
+o nome que ele gera não é muito amigável, então eu sou apenas
+
+172
+00:08:33,390 --> 00:08:36,480
+Vou chamá-lo de DiabetesPredictor, sem espaço.
+
+173
+00:08:36,480 --> 00:08:39,123
+É para armazenar este serviço da web na minha conta de armazenamento
+
+174
+00:08:39,123 --> 00:08:41,428
+e eu preciso associá-lo a um plano de preços, então
+
+175
+00:08:41,428 --> 00:08:43,973
+que sabemos cobrar pelas chamadas feitas.
+
+176
+00:08:43,972 --> 00:08:47,306
+E eu tenho meu plano que implantei quando
+
+177
+00:08:47,306 --> 00:08:49,766
+Eu provisionei meu espaço de trabalho.
+
+178
+00:08:49,766 --> 00:08:51,147
+Então, vamos em frente e
+
+179
+00:08:51,147 --> 00:08:53,841
+implantar essa experiência como um serviço da web.
+
+180
+00:09:02,671 --> 00:09:04,520
+E quando é implantado,
+
+181
+00:09:04,520 --> 00:09:08,724
+Eu recebo este site de serviços da Web abrindo onde posso gerenciar
+
+182
+00:09:08,724 --> 00:09:11,950
+todos os meus serviços da web que eu implantei.
+
+183
+00:09:11,950 --> 00:09:14,520
+E eu estou no meu site do Diabetes Predictor, e
+
+184
+00:09:14,520 --> 00:09:17,600
+Eu posso obter informações daqui sobre o número de pedidos,
+
+185
+00:09:17,600 --> 00:09:20,075
+obviamente ainda não houve nenhum.
+
+186
+00:09:20,075 --> 00:09:23,890
+E faça coisas como configurá-lo e testá-lo.
+
+187
+00:09:23,890 --> 00:09:27,230
+Portanto, há várias opções aqui para eu trabalhar com isso.
+
+188
+00:09:27,230 --> 00:09:28,796
+Mais tarde, vamos voltar e
+
+189
+00:09:28,796 --> 00:09:30,634
+Veja como nós consumimos esse serviço da web.
+

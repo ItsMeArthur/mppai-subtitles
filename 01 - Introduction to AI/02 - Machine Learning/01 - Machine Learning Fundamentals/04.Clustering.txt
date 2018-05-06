@@ -1,0 +1,347 @@
+﻿1
+00:00:01,795 --> 00:00:04,260
+Nós vimos alguns exemplos de
+aprendizado supervisionado
+
+2
+00:00:04,260 --> 00:00:06,260
+especificamente regressão
+e classificação.
+
+3
+00:00:07,380 --> 00:00:08,830
+Mas e o aprendizado
+não supervisionado?
+
+4
+00:00:10,050 --> 00:00:11,530
+Em técnicas de aprendizado
+não supervisionadas
+
+5
+00:00:11,530 --> 00:00:14,820
+você não tem um rótulo
+para treinar o modelo.
+
+6
+00:00:14,820 --> 00:00:16,735
+Mas você ainda pode usar
+um algoritmo que encontra
+
+7
+00:00:16,735 --> 00:00:18,489
+semelhanças nas
+observações de dados
+
+8
+00:00:18,514 --> 00:00:19,983
+para agrupar eles em clusters.
+
+9
+00:00:21,250 --> 00:00:21,750
+Suponha por
+
+10
+00:00:21,750 --> 00:00:24,900
+exemplo, que a nossa clínica de saúde
+tem um site que contém links para
+
+11
+00:00:24,900 --> 00:00:28,000
+artigos e publicações sobre
+estilo de vida saudável.
+
+12
+00:00:29,030 --> 00:00:30,840
+Agora eu posso querer agrupar
+
+13
+00:00:30,865 --> 00:00:33,087
+automaticamente
+artigos similares.
+
+14
+00:00:33,087 --> 00:00:36,417
+Ou talvez eu queira segmentar
+nossos participantes do estudo e
+
+15
+00:00:36,417 --> 00:00:40,120
+podemos categorizá-los com base
+em características semelhantes.
+
+16
+00:00:41,840 --> 00:00:44,073
+Existem várias maneiras de
+criar um modelo de clustering.
+
+17
+00:00:44,073 --> 00:00:46,561
+E vamos ver uma das técnicas
+de clustering mais populares
+
+18
+00:00:46,561 --> 00:00:48,960
+algo chamado
+k-means clustering.
+
+19
+00:00:50,240 --> 00:00:53,000
+Agora, a chave para entender
+k-means é lembrar que nossos
+
+20
+00:00:53,000 --> 00:00:55,404
+dados consistem em
+linhas e cada linha
+
+21
+00:00:55,429 --> 00:00:57,500
+contém múltiplas
+características.
+
+22
+00:00:57,500 --> 00:01:00,250
+Agora, se assumirmos que cada
+característica é um valor numérico
+
+23
+00:01:00,250 --> 00:01:02,640
+então podemos plotá-los
+como coordenadas.
+
+24
+00:01:02,640 --> 00:01:04,824
+Aqui estamos plotando
+dois recursos
+
+25
+00:01:04,849 --> 00:01:06,523
+em uma grade bidimensional.
+
+26
+00:01:06,523 --> 00:01:08,542
+Mas na realidade,
+vários recursos seriam
+
+27
+00:01:08,567 --> 00:01:10,241
+plotados no espaço
+n-dimensional.
+
+28
+00:01:12,130 --> 00:01:14,172
+Em seguida, decidimos
+quantos clusters
+
+29
+00:01:14,197 --> 00:01:16,110
+queremos criar, o
+que chamamos de k.
+
+30
+00:01:16,110 --> 00:01:18,780
+E plotamos k pontos
+em locais aleatórios
+
+31
+00:01:18,780 --> 00:01:21,720
+que representam os pontos
+centrais de nossos clusters.
+
+32
+00:01:21,720 --> 00:01:24,910
+Nesse caso, k é três, por isso
+estamos criando três clusters.
+
+33
+00:01:26,850 --> 00:01:30,300
+Em seguida, identificamos a qual
+dos três centróides cada ponto é
+
+34
+00:01:30,300 --> 00:01:33,600
+mais próximo e atribuímos os
+pontos aos clusters de acordo.
+
+35
+00:01:36,020 --> 00:01:38,456
+Então nós movemos cada
+centróide para o centro
+
+36
+00:01:38,481 --> 00:01:40,554
+verdadeiro dos pontos
+em seus clusters.
+
+37
+00:01:41,550 --> 00:01:43,198
+E realocamos os
+pontos no cluster com
+
+38
+00:01:43,223 --> 00:01:44,914
+base em seus centróides
+mais próximos.
+
+39
+00:01:46,500 --> 00:01:51,460
+E nós repetimos esse processo até
+termos clusters bem separados.
+
+40
+00:01:51,460 --> 00:01:53,480
+Então o que eu quero
+dizer com bem separados?
+
+41
+00:01:54,690 --> 00:01:56,443
+Queremos um conjunto
+de clusters que
+
+42
+00:01:56,468 --> 00:01:58,303
+separe os dados na maior
+extensão possível.
+
+43
+00:01:59,700 --> 00:02:02,316
+Para medir isso, podemos
+comparar a distância
+
+44
+00:02:02,341 --> 00:02:04,420
+média entre os centros
+dos clusters.
+
+45
+00:02:04,420 --> 00:02:07,200
+E a distância média
+entre os pontos
+
+46
+00:02:07,225 --> 00:02:09,440
+nos clusters e seus centros.
+
+47
+00:02:09,440 --> 00:02:11,280
+Clusters que maximizam
+essa medida
+
+48
+00:02:11,280 --> 00:02:12,410
+tem a maior separação.
+
+49
+00:02:14,570 --> 00:02:17,790
+Podemos também usar a razão
+da distância média entre
+
+50
+00:02:17,790 --> 00:02:21,400
+clusters, e a distância
+máxima entre os pontos e
+
+51
+00:02:21,400 --> 00:02:22,980
+o centróide do cluster.
+
+52
+00:02:25,070 --> 00:02:27,080
+Outra maneira como poderíamos
+avaliar os resultados de
+
+53
+00:02:27,080 --> 00:02:29,740
+um algoritmo de clustering
+é usar um método chamado
+
+54
+00:02:29,740 --> 00:02:33,040
+Principal Component
+Analysis, ou PCA.
+
+55
+00:02:33,040 --> 00:02:36,660
+Em que nós decompomos os pontos
+de um cluster em direções.
+
+56
+00:02:36,660 --> 00:02:39,539
+Nós representamos os dois
+primeiros componentes
+
+57
+00:02:39,564 --> 00:02:41,938
+da decomposição do
+PCA como uma elipse.
+
+58
+00:02:41,938 --> 00:02:44,350
+O primeiro componente principal
+é ao longo da direção
+
+59
+00:02:44,350 --> 00:02:47,540
+da variância máxima ou
+eixo principal da elipse.
+
+60
+00:02:47,540 --> 00:02:50,120
+E o segundo PCA está ao longo
+do eixo menor da elipse.
+
+61
+00:02:51,942 --> 00:02:55,630
+Um cluster que é perfeitamente
+separado do primeiro cluster
+
+62
+00:02:55,630 --> 00:02:59,090
+aparece como uma elipse,
+com o eixo maior da elipse
+
+63
+00:02:59,090 --> 00:03:01,610
+perpendicular à elipse
+do primeiro cluster.
+
+64
+00:03:02,970 --> 00:03:05,010
+Cada segundo cluster é
+razoavelmente bom, mas
+
+65
+00:03:05,010 --> 00:03:07,130
+não perfeitamente separado.
+
+66
+00:03:07,130 --> 00:03:09,084
+Então terá um eixo
+maior que não é
+
+67
+00:03:09,109 --> 00:03:11,174
+bem perpendicular a
+primeira elipse.
+
+68
+00:03:12,960 --> 00:03:16,460
+E se o segundo cluster é muito
+mal separado do primeiro
+
+69
+00:03:16,460 --> 00:03:19,770
+o eixo principal de ambas as
+elipses será quase colinear.
+
+70
+00:03:19,770 --> 00:03:21,910
+E a elipse pode ser mais
+parecida com um círculo
+
+71
+00:03:21,910 --> 00:03:24,489
+porque o segundo cluster
+é menos bem definido.
+

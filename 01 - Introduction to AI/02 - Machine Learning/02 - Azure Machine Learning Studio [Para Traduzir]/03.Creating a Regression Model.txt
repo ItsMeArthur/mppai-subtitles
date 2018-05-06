@@ -1,0 +1,688 @@
+0
+00:00:01,230 --> 00:00:03,840
+Vamos dar uma olhada no modelo de regressão no ML do Azure.
+
+1
+00:00:06,550 --> 00:00:11,890
+Então, aqui estou no meu Azure ML Learning Studio.
+
+2
+00:00:11,890 --> 00:00:14,230
+E eu tenho meu experimento de calorias que nós
+
+3
+00:00:14,230 --> 00:00:15,390
+começou anteriormente.
+
+4
+00:00:15,390 --> 00:00:18,120
+E você pode ver que eu tenho as calorias e os arquivos de exercícios,
+
+5
+00:00:18,120 --> 00:00:20,320
+Eu me juntei a eles como fizemos antes, e
+
+6
+00:00:20,320 --> 00:00:23,690
+então eu converti-los para CSV para que eu pudesse fazer alguma visualização de
+
+7
+00:00:23,690 --> 00:00:25,950
+eles e ver alguns dos relacionamentos.
+
+8
+00:00:25,950 --> 00:00:27,940
+Agora eu adicionei mais alguns módulos para isso.
+
+9
+00:00:27,940 --> 00:00:29,920
+Agora eu vou te guiar pelo que fizemos muito
+
+10
+00:00:29,920 --> 00:00:31,010
+rapidamente aqui.
+
+11
+00:00:31,010 --> 00:00:34,980
+Nós temos um módulo de edição de modelo de metadados aqui,
+
+12
+00:00:34,980 --> 00:00:37,500
+e o que eu estou fazendo lá é que eu pego essa coluna de Gênero, se
+
+13
+00:00:37,500 --> 00:00:41,400
+Você lembra que há uma coluna de Gênero, apenas visualize isso.
+
+14
+00:00:44,180 --> 00:00:46,360
+Qual é masculino ou feminino.
+
+15
+00:00:46,360 --> 00:00:49,000
+E isso obviamente não é um valor numérico.
+
+16
+00:00:49,000 --> 00:00:51,760
+É uma categoria, é uma variável categórica.
+
+17
+00:00:51,760 --> 00:00:53,290
+Então, estou tornando isso categórico.
+
+18
+00:00:53,290 --> 00:00:55,430
+Se eu der uma olhada nas propriedades aqui,
+
+19
+00:00:55,430 --> 00:00:59,210
+você pode ver que estou apenas dizendo que isso é categórico.
+
+20
+00:00:59,210 --> 00:01:01,689
+Então, trate isso como uma variável categórica.
+
+21
+00:01:02,950 --> 00:01:07,310
+Então eu tenho uma aplicação de matemática aqui, e o que eu sou
+
+22
+00:01:07,310 --> 00:01:10,600
+fazer aqui é tomar uma duração e frequência cardíaca.
+
+23
+00:01:11,640 --> 00:01:16,860
+E se você se lembra quando comparamos alguns desses diferentes
+
+24
+00:01:16,860 --> 00:01:20,890
+valores para calorias construídas para o gráfico de dispersão, havia tipo de
+
+25
+00:01:20,890 --> 00:01:23,840
+relacionamentos curvos que não eram exatamente lineares.
+
+26
+00:01:23,840 --> 00:01:26,328
+E então, às vezes, apenas ter outra versão,
+
+27
+00:01:26,328 --> 00:01:28,513
+fazendo o que chamamos de engenharia de recursos.
+
+28
+00:01:28,513 --> 00:01:32,365
+Criando outro recurso, baseado em um recurso existente,
+
+29
+00:01:32,365 --> 00:01:35,764
+com um tipo diferente de cálculo matemático,
+
+30
+00:01:35,764 --> 00:01:38,600
+pode me ajudar a construir um relacionamento melhor.
+
+31
+00:01:38,600 --> 00:01:43,920
+Então, indo para um poder de dois, basicamente quadrando estes
+
+32
+00:01:43,920 --> 00:01:46,900
+colunas, me dá uma maneira alternativa de compará-los, e por
+
+33
+00:01:46,900 --> 00:01:50,140
+Em vez de quadrá-los, talvez eu consiga me encaixar melhor contra as calorias.
+
+34
+00:01:51,640 --> 00:01:54,490
+Então, há outra operação de matemática aqui para calorias
+
+35
+00:01:54,490 --> 00:01:55,680
+em si.
+
+36
+00:01:55,680 --> 00:01:59,240
+Eu estou realmente mudando meu rótulo de calorias que eu quero
+
+37
+00:01:59,240 --> 00:02:02,090
+prever, e eu estou mudando para o log de calorias,
+
+38
+00:02:02,090 --> 00:02:04,350
+Eu estou usando uma função de registro natural.
+
+39
+00:02:04,350 --> 00:02:05,443
+Agora há uma razão pela qual eu estou fazendo isso,
+
+40
+00:02:05,443 --> 00:02:06,340
+Eu não estou apenas sendo contrário.
+
+41
+00:02:06,340 --> 00:02:09,313
+Eu quero ter certeza de que não vou prever calorias negativas,
+
+42
+00:02:09,312 --> 00:02:12,800
+porque, claro, você não pode queimar calorias negativas.
+
+43
+00:02:12,800 --> 00:02:15,980
+Então, estamos convertendo isso em um log para que nossa previsão seja
+
+44
+00:02:15,980 --> 00:02:19,540
+na verdade, ser registro de calorias, em vez de calorias, e
+
+45
+00:02:19,540 --> 00:02:20,880
+será sempre um número positivo.
+
+46
+00:02:22,860 --> 00:02:25,060
+Agora, é muito comum normalizar ou
+
+47
+00:02:25,060 --> 00:02:27,030
+dimensionar os dados com os quais estamos trabalhando.
+
+48
+00:02:27,030 --> 00:02:28,700
+Se tivermos muitos valores numéricos diferentes,
+
+49
+00:02:28,700 --> 00:02:33,700
+tudo em diferentes escalas, que podem significar valores que
+
+50
+00:02:33,700 --> 00:02:37,410
+ter um número particularmente alto pode dominar a formação de
+
+51
+00:02:37,410 --> 00:02:41,120
+o modelo quando chegamos a criar nosso modelo de regressão.
+
+52
+00:02:41,120 --> 00:02:44,040
+Então, estamos redimensionando todos para um valor entre zero e um,
+
+53
+00:02:44,040 --> 00:02:45,140
+efetivamente.
+
+54
+00:02:45,140 --> 00:02:46,650
+E estou usando alguns tipos diferentes de
+
+55
+00:02:46,650 --> 00:02:48,130
+normalização.
+
+56
+00:02:48,130 --> 00:02:50,980
+Os números que têm uma distribuição razoavelmente normal,
+
+57
+00:02:50,980 --> 00:02:51,778
+em outras palavras,
+
+58
+00:02:51,778 --> 00:02:54,748
+os que têm esse tipo de histograma curvo em forma de sino.
+
+59
+00:02:54,748 --> 00:02:57,885
+Eu estou usando algo chamado normalização de pontuação de doença para
+
+60
+00:02:57,885 --> 00:02:59,860
+trazê-los para baixo na mesma escala.
+
+61
+00:02:59,860 --> 00:03:03,540
+E depois os que não são distribuições normais.
+
+62
+00:03:03,540 --> 00:03:07,300
+Há algumas colunas lá como a idade e
+
+63
+00:03:07,300 --> 00:03:10,501
+a duração e a duração ao quadrado.
+
+64
+00:03:11,660 --> 00:03:14,791
+Eles não são realmente normais.
+
+65
+00:03:14,791 --> 00:03:17,142
+Então, vou usar essa versão min-max da normalização
+
+66
+00:03:17,142 --> 00:03:19,220
+Funciona melhor para esse tipo de distribuição.
+
+67
+00:03:21,230 --> 00:03:24,000
+Então eu tenho um pouco de arrumar o trabalho aqui.
+
+68
+00:03:24,000 --> 00:03:24,757
+E calorias em si é o rótulo original
+
+69
+00:03:24,757 --> 00:03:25,296
+que estou tentando prever,
+
+70
+00:03:25,296 --> 00:03:26,365
+embora agora eu esteja tentando prever o registro de calorias.
+
+71
+00:03:26,365 --> 00:03:29,840
+Bem, o ID do usuário não é realmente uma coluna preditiva muito útil.
+
+72
+00:03:29,840 --> 00:03:31,662
+é apenas uma ID exclusiva para cada usuário,
+
+73
+00:03:31,662 --> 00:03:35,170
+não deve ter qualquer influência sobre quantas calorias eles queimam.
+
+74
+00:03:35,170 --> 00:03:37,570
+E calorias em si é o original
+
+75
+00:03:37,570 --> 00:03:39,160
+rótulo que estou tentando prever,
+
+76
+00:03:39,160 --> 00:03:42,150
+embora agora eu esteja tentando prever o registro de calorias.
+
+77
+00:03:42,150 --> 00:03:44,277
+Então, eu não quero usar calorias como um recurso, e assim
+
+78
+00:03:44,277 --> 00:03:46,661
+Eu basicamente estou dizendo que esses recursos não são
+
+79
+00:03:46,661 --> 00:03:49,010
+não os considere quando estivermos criando o modelo.
+
+80
+00:03:50,229 --> 00:03:53,375
+Tudo bem, bem, então entramos no edifício do modelo real, e
+
+81
+00:03:53,375 --> 00:03:56,287
+a primeira coisa que vou fazer é dividir os dados aleatoriamente em
+
+82
+00:03:56,287 --> 00:03:56,811
+dois conjuntos,
+
+83
+00:03:56,811 --> 00:04:00,450
+e isso porque este é um exemplo de aprendizado supervisionado.
+
+84
+00:04:00,450 --> 00:04:04,430
+Então, eu vou pegar 70% dos meus dados e usar isso para treinar o modelo,
+
+85
+00:04:04,430 --> 00:04:08,120
+mas eu vou segurar 30% desse treinamento, então
+
+86
+00:04:08,120 --> 00:04:12,130
+que eu posso então testar o modelo usando algumas observações onde
+
+87
+00:04:12,130 --> 00:04:14,860
+Eu realmente sei o que o rótulo deveria ser, e
+
+88
+00:04:14,860 --> 00:04:17,800
+que me permite ver com que precisão o modelo está prevendo.
+
+89
+00:04:17,800 --> 00:04:20,330
+Então, nós temos 70, 30 divididos lá e
+
+90
+00:04:20,329 --> 00:04:21,822
+então nós treinamos o modelo, e
+
+91
+00:04:21,822 --> 00:04:26,600
+Estamos treinando um modelo usando um algoritmo de regressão linear.
+
+92
+00:04:26,600 --> 00:04:30,050
+Existem vários algoritmos diferentes que você pode usar para
+
+93
+00:04:30,050 --> 00:04:33,340
+modelos de regressão de treinamento e para diferentes tipos de modelos.
+
+94
+00:04:33,340 --> 00:04:34,500
+Nós vamos usar a regressão linear,
+
+95
+00:04:34,500 --> 00:04:39,510
+que é bastante tradicional tipo de algoritmo bem conhecido para
+
+96
+00:04:39,510 --> 00:04:40,829
+treinando esses tipos de modelos.
+
+97
+00:04:42,140 --> 00:04:44,938
+Estamos treinando o modelo para prever o registro de calorias,
+
+98
+00:04:44,938 --> 00:04:47,232
+as calorias que calculamos anteriormente.
+
+99
+00:04:47,232 --> 00:04:50,037
+E então, uma vez que nós o treinamos,
+
+100
+00:04:50,037 --> 00:04:54,645
+vamos marcá-lo comparando as previsões que
+
+101
+00:04:54,645 --> 00:05:00,110
+são gerados com os dados do nosso conjunto de testes que retemos.
+
+102
+00:05:00,110 --> 00:05:03,700
+Então, vamos marcá-lo e receberemos alguns marcadores preditivos, ou
+
+103
+00:05:03,700 --> 00:05:06,600
+marcou rótulos como eles são chamados, e podemos comparar esses
+
+104
+00:05:06,600 --> 00:05:10,100
+aos rótulos originais e ver quão bem estamos prevendo.
+
+105
+00:05:10,100 --> 00:05:13,050
+E isso me permitirá avaliar o modelo, bem como
+
+106
+00:05:13,050 --> 00:05:16,310
+ver esse tipo de métrica de desempenho que usamos para
+
+107
+00:05:16,310 --> 00:05:19,770
+modelos de regressão apenas para ver o quão bem é o desempenho.
+
+108
+00:05:19,770 --> 00:05:22,540
+E então, finalmente, eu tenho uma Apply Math Operation,
+
+109
+00:05:22,540 --> 00:05:25,410
+porque o que previmos foi o log de calorias, e
+
+110
+00:05:25,410 --> 00:05:27,020
+Claro que o que eu realmente quero é calorias.
+
+111
+00:05:27,020 --> 00:05:29,830
+Então eu quero converter isso de volta para calorias usando
+
+112
+00:05:29,830 --> 00:05:31,150
+a função exponencial.
+
+113
+00:05:32,150 --> 00:05:34,110
+Então eu posso ir em frente e executar essa experiência,
+
+114
+00:05:34,110 --> 00:05:34,940
+Na verdade, já o rodei
+
+115
+00:05:34,940 --> 00:05:35,970
+você pode ver os carrapatos verdes aqui,
+
+116
+00:05:35,970 --> 00:05:37,240
+Eu já fiz o experimento.
+
+117
+00:05:37,240 --> 00:05:39,690
+Então, se eu der uma olhada no Modelo de Pontuação,
+
+118
+00:05:39,690 --> 00:05:43,360
+a saída disso, e eu só vejo o que temos.
+
+119
+00:05:44,400 --> 00:05:48,430
+Bem, aqui estão todas as colunas no meu conjunto de dados, incluindo todas
+
+120
+00:05:48,430 --> 00:05:52,360
+os que eu gerou, então há a minha duração ao quadrado
+
+121
+00:05:52,360 --> 00:05:58,370
+efeito, duração ao poder de dois e a frequência cardíaca também.
+
+122
+00:05:58,370 --> 00:06:03,620
+E eu tenho meu registro de calorias aqui, é o que eu sou
+
+123
+00:06:03,620 --> 00:06:06,760
+tentando prever, e então eu tenho os rótulos marcados reais.
+
+124
+00:06:06,760 --> 00:06:07,670
+Isso é o que eu previ.
+
+125
+00:06:07,670 --> 00:06:09,450
+Você pode ver que eles estão razoavelmente próximos.
+
+126
+00:06:09,450 --> 00:06:11,110
+As distribuições parecem bem semelhantes e
+
+127
+00:06:11,110 --> 00:06:13,600
+Eu posso ver os números em si são bastante próximos.
+
+128
+00:06:13,600 --> 00:06:14,920
+Mas isso não é realmente surpreendente,
+
+129
+00:06:14,920 --> 00:06:16,610
+porque é o log,
+
+130
+00:06:16,610 --> 00:06:19,380
+então as diferenças serão bem pequenas.
+
+131
+00:06:19,380 --> 00:06:23,510
+O que mais me interessa são as métricas que
+
+132
+00:06:23,510 --> 00:06:26,630
+me diga o quão bem esse modelo está realmente funcionando.
+
+133
+00:06:26,630 --> 00:06:30,710
+Então, vamos dar uma olhada na saída do meu modelo de avaliação.
+
+134
+00:06:33,010 --> 00:06:35,880
+E nós temos um monte de métricas aqui que nós conversamos
+
+135
+00:06:35,880 --> 00:06:37,585
+sobre brevemente na palestra.
+
+136
+00:06:37,585 --> 00:06:39,691
+Agora, o erro médio absoluto e
+
+137
+00:06:39,691 --> 00:06:43,100
+Raiz Means Squared Error são medidas absolutas.
+
+138
+00:06:43,100 --> 00:06:47,590
+Então, eles estão medindo, neste caso, na unidade de log de
+
+139
+00:06:47,590 --> 00:06:49,680
+calorias, então é um número sem sentido,
+
+140
+00:06:49,680 --> 00:06:51,670
+isso realmente não me ajuda muito.
+
+141
+00:06:51,670 --> 00:06:53,310
+Mas os relativos são bastante úteis.
+
+142
+00:06:53,310 --> 00:06:55,365
+Estes são entre zero e um, e por
+
+143
+00:06:55,365 --> 00:06:56,859
+erro absoluto relativo e
+
+144
+00:06:56,859 --> 00:06:59,980
+erro quadrado relativo Eu quero que eles sejam bastante próximos de 0.
+
+145
+00:06:59,980 --> 00:07:03,777
+E parece que, bem, 0.02, 0.1 & # 39; s talvez um pouco alto, mas
+
+146
+00:07:03,777 --> 00:07:07,500
+eles estão próximos o suficiente para eu ficar confortável.
+
+147
+00:07:07,500 --> 00:07:10,100
+E o coeficiente de determinação, ou R ao quadrado,
+
+148
+00:07:10,100 --> 00:07:12,408
+nós às vezes chamamos isso, queremos que seja perto de um.
+
+149
+00:07:12,408 --> 00:07:17,020
+E é 0,97, então, na verdade, parece muito bom.
+
+150
+00:07:17,020 --> 00:07:18,675
+E se eu olhar meu histograma,
+
+151
+00:07:18,675 --> 00:07:21,924
+a maioria dos valores de erro são baixos em relação ao limite baixo aqui,
+
+152
+00:07:21,924 --> 00:07:24,060
+Eu não tenho nenhum erro realmente grande.
+
+153
+00:07:24,060 --> 00:07:27,017
+Eu tenho alguns outliers ao longo do caminho, mas
+
+154
+00:07:27,017 --> 00:07:30,040
+a maioria dos meus cabeçalhos é bem pequena.
+
+155
+00:07:30,040 --> 00:07:32,290
+Então isso me diz que está prevendo razoavelmente bem.
+
+156
+00:07:33,310 --> 00:07:36,081
+E então eu usei essa operação de matemática aqui para converter meu
+
+157
+00:07:36,081 --> 00:07:38,563
+previu registro de calorias de volta em calorias, e
+
+158
+00:07:38,563 --> 00:07:40,365
+Agora eu vou visualizar isso.
+
+159
+00:07:40,365 --> 00:07:44,510
+Eu vou seguir em frente até o final daqui e
+
+160
+00:07:44,510 --> 00:07:49,970
+Eu posso ver aqui o exponencial dos meus rótulos marcados.
+
+161
+00:07:49,970 --> 00:07:53,620
+Então, isso é o que é previsto em termos de calorias.
+
+162
+00:07:53,620 --> 00:07:55,708
+E se nós apenas nos movermos desse jeito um pouco,
+
+163
+00:07:55,708 --> 00:07:57,756
+aqui estão as calorias reais.
+
+164
+00:07:57,756 --> 00:08:02,487
+Então, 172 contra 148, 99 contra 122,
+
+165
+00:08:02,487 --> 00:08:06,750
+178 versus 166, 55 contra 51.
+
+166
+00:08:06,750 --> 00:08:10,830
+Então, eles estão dentro do tipo de estádio.
+
+167
+00:08:10,830 --> 00:08:16,642
+Eles estão razoavelmente próximos do número previsto de calorias.
+
+168
+00:08:16,642 --> 00:08:19,280
+O valor previsto é razoavelmente próximo do valor real
+
+169
+00:08:19,280 --> 00:08:20,820
+número de calorias que foram queimadas.
+
+170
+00:08:20,820 --> 00:08:23,640
+Então eu posso estar razoavelmente confiante de que este modelo
+
+171
+00:08:23,640 --> 00:08:28,030
+está produzindo uma boa previsão para minha queima de calorias.
+

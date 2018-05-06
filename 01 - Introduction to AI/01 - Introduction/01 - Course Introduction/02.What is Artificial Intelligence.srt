@@ -1,0 +1,84 @@
+1
+00:00:00,510 --> 00:00:03,248
+Quando falamos de inteligência
+artificial, é fácil
+
+2
+00:00:03,273 --> 00:00:05,610
+imaginar um futuro
+de fição científica
+
+3
+00:00:05,610 --> 00:00:08,730
+onde os robôs tomaram
+o mundo e nos escravizaram.
+
+4
+00:00:11,725 --> 00:00:15,520
+No entanto, fora se o seu
+XBox não precisa ser assim.
+
+5
+00:00:18,461 --> 00:00:22,045
+Na Microsoft, vemos a IA como
+uma maneira de permitir que as
+
+6
+00:00:22,070 --> 00:00:25,570
+pessoas realizem mais colaborando
+com software inteligente.
+
+7
+00:00:25,570 --> 00:00:28,420
+Pense nisso como colocar uma
+cara mais humana na tecnologia.
+
+8
+00:00:29,650 --> 00:00:32,230
+Tecnologia que pode aprender com
+as vastas quantidades de dados que
+
+9
+00:00:32,229 --> 00:00:35,220
+estão disponíveis no mundo
+moderno, e tecnologia que pode
+
+10
+00:00:35,220 --> 00:00:38,310
+entender o nosso tipo de
+linguagem e responder a altura.
+
+11
+00:00:39,510 --> 00:00:40,900
+Tecnologia que pode ver e
+
+12
+00:00:40,900 --> 00:00:42,910
+interpretar o mundo da
+maneira que fazemos.
+
+13
+00:00:44,650 --> 00:00:46,994
+No restante deste curso,
+vamos explorar como esse
+
+14
+00:00:47,019 --> 00:00:49,150
+tipo de tecnologia
+funciona, mas por enquanto
+
+15
+00:00:49,150 --> 00:00:52,270
+vamos passar para o próximo tópico
+para ver alguns exemplos do mundo real
+
+16
+00:00:52,270 --> 00:00:54,970
+de como a IA pode revolucionar
+a maneira como computadores e
+
+17
+00:00:54,970 --> 00:00:57,800
+os humanos trabalham juntos para
+criar um mundo melhor e mais seguro.
+

@@ -1,0 +1,232 @@
+﻿1
+00:00:01,870 --> 00:00:06,130
+O aprendizado de máquina fornece a
+base para a inteligência artificial.
+
+2
+00:00:06,130 --> 00:00:07,540
+Então o que é isso?
+
+3
+00:00:07,540 --> 00:00:10,165
+Bem, como o nome sugere, o
+aprendizado de máquina é uma técnica
+
+4
+00:00:10,165 --> 00:00:12,141
+em que nós treinamos um modelo
+de software usando dados.
+
+5
+00:00:14,260 --> 00:00:17,528
+O modelo aprende com os casos de
+treinamento e em seguida podemos
+
+6
+00:00:17,528 --> 00:00:22,707
+usar o modelo treinado para fazer
+previsões para novos casos.
+
+7
+00:00:23,722 --> 00:00:26,429
+A chave para isso é entender
+que fundamentalmente
+
+8
+00:00:26,429 --> 00:00:29,810
+computadores são muito bons
+em uma coisa, cálculos.
+
+9
+00:00:30,850 --> 00:00:34,030
+Para que um computador faça previsões
+inteligentes a partir de dados só
+
+10
+00:00:34,055 --> 00:00:37,210
+precisamos de uma maneira de treiná-lo
+para realizar os cálculos corretos.
+
+11
+00:00:37,210 --> 00:00:39,940
+Começamos com um conjunto de dados
+que contém registros históricos
+
+12
+00:00:39,940 --> 00:00:42,210
+freqüentemente chamados
+casos ou observações.
+
+13
+00:00:42,210 --> 00:00:44,760
+E cada observação inclui
+recursos numéricos
+
+14
+00:00:44,760 --> 00:00:48,170
+que quantificam uma característica do
+item com o qual estamos trabalhando.
+
+15
+00:00:48,170 --> 00:00:49,150
+Vamos chamá-las de X.
+
+16
+00:00:50,420 --> 00:00:52,374
+Em geral, também temos
+algum valor que estamos
+
+17
+00:00:52,399 --> 00:00:54,144
+tentando prever, o que
+vamos chamar de Y.
+
+18
+00:00:54,589 --> 00:00:56,975
+Em seguinte usamos nossos
+casos de treinamento
+
+19
+00:00:57,000 --> 00:00:58,690
+para treinar um modelo de
+aprendizado de máquina
+
+20
+00:00:58,690 --> 00:01:02,329
+para que ele possa calcular um valor
+Y a partir das características de X.
+
+21
+00:01:03,672 --> 00:01:07,301
+Então, em termos muito simplistas,
+estamos criando uma função que
+
+22
+00:01:07,301 --> 00:01:11,091
+opera em um conjunto de
+características de X para prever Y.
+
+23
+00:01:11,091 --> 00:01:16,045
+Existem dois tipos principais
+de aprendizado de máquina.
+
+24
+00:01:16,082 --> 00:01:18,578
+supervisionado e não
+supervisionado.
+
+25
+00:01:18,780 --> 00:01:20,800
+Em cenários de aprendizado
+supervisionado
+
+26
+00:01:20,800 --> 00:01:23,095
+começamos com observações
+que incluem valores
+
+27
+00:01:23,120 --> 00:01:25,490
+conhecidos para as variável
+que queremos prever.
+
+28
+00:01:25,241 --> 00:01:26,711
+Chamamos estes
+valores de rótulos.
+
+29
+00:01:27,220 --> 00:01:29,540
+Como começamos com dados
+que incluem o rótulo que
+
+30
+00:01:29,540 --> 00:01:32,620
+estamos tentando prever, podemos
+treinar o modelo usando apenas alguns
+
+31
+00:01:32,620 --> 00:01:35,740
+dos dados e reter o
+resto dos dados para
+
+32
+00:01:35,740 --> 00:01:37,450
+avaliar o desempenho do modelo.
+
+33
+00:01:38,530 --> 00:01:41,627
+Em seguida, usamos um algoritmo de
+aprendizado de máquina para treinar
+
+34
+00:01:41,652 --> 00:01:44,550
+um modelo que se ajusta as
+características dos rótulos conhecidos.
+
+35
+00:01:44,550 --> 00:01:47,170
+E porque começamos
+um rótulo conhecido
+
+36
+00:01:47,170 --> 00:01:50,180
+nós podemos validar o modelo
+comparando o valor previsto pela
+
+37
+00:01:50,180 --> 00:01:52,890
+função, com o valor real
+do rótulo que conhecemos.
+
+38
+00:01:54,188 --> 00:01:56,440
+Então, quando estamos felizes
+que o modelo funciona
+
+39
+00:01:56,440 --> 00:01:58,500
+podemos usá-lo com
+novas observações para
+
+40
+00:01:58,500 --> 00:02:01,949
+as quais rótulo é desconhecido
+e prever novos valores.
+
+41
+00:02:04,371 --> 00:02:06,924
+O aprendizado não supervisionado
+é diferente do supervisionado
+
+42
+00:02:06,924 --> 00:02:09,984
+pois desta vez não temos
+os valores dos rótulos
+
+43
+00:02:09,984 --> 00:02:11,130
+no conjunto de dados
+de treinamento.
+
+44
+00:02:12,130 --> 00:02:15,505
+Nós treinamos o modelo encontrando
+semelhanças entre as observações.
+
+45
+00:02:17,813 --> 00:02:19,961
+Depois que o modelo é
+treinado cada nova
+
+46
+00:02:19,986 --> 00:02:22,528
+observação é atribuída ao
+cluster de observações
+
+47
+00:02:22,528 --> 00:02:24,650
+com as características
+mais semelhantes.
+

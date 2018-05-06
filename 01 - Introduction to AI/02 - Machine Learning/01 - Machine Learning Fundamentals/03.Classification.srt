@@ -1,0 +1,584 @@
+﻿1
+00:00:01,000 --> 00:00:04,565
+Vimos como treinar um modelo de
+regressão para prever um valor numérico.
+
+2
+00:00:04,565 --> 00:00:09,723
+Agora é hora de olhar para outro tipo de
+aprendizado supervisionado, classificação.
+
+3
+00:00:09,723 --> 00:00:13,118
+A classificação é uma técnica que
+podemos usar para prever a qual
+
+4
+00:00:13,118 --> 00:00:15,675
+classe, ou categoria,
+algo pertence.
+
+5
+00:00:15,675 --> 00:00:18,658
+A variante mais simples disso é
+a classificação binária em que
+
+6
+00:00:18,658 --> 00:00:21,770
+prevemos se uma entidade
+pertence a uma de duas classes.
+
+7
+00:00:21,770 --> 00:00:23,658
+É frequentemente usada
+para determinar se
+
+8
+00:00:23,683 --> 00:00:25,680
+algo é verdadeiro ou
+falso sobre a entidade.
+
+9
+00:00:25,680 --> 00:00:26,920
+Por exemplo.
+
+10
+00:00:26,920 --> 00:00:30,010
+Suponha que levemos um número de
+pacientes a nossa clínica de saúde.
+
+11
+00:00:30,010 --> 00:00:33,910
+Reunimos alguns detalhes pessoais
+e realizamos alguns testes.
+
+12
+00:00:33,910 --> 00:00:38,249
+Nós conseguimos identificar quais
+pacientes são diabéticos e quais não são.
+
+13
+00:00:39,590 --> 00:00:41,820
+Podemos aprender uma função
+que pode ser aplicada as
+
+14
+00:00:41,845 --> 00:00:44,260
+características destes pacientes
+e dar o resultado 1 para
+
+15
+00:00:44,260 --> 00:00:47,280
+pacientes que são diabéticos, e
+0 para pacientes que não são.
+
+16
+00:00:48,620 --> 00:00:51,360
+Mais geralmente, um classificador
+binário é uma função que
+
+17
+00:00:51,360 --> 00:00:57,890
+pode ser aplicada as características X
+para produzir um valor Y de 1 ou 0.
+
+18
+00:00:57,890 --> 00:01:01,080
+A função não irá realmente
+calcular um valor absoluto
+
+19
+00:01:01,080 --> 00:01:04,390
+de 1 ou 0, irá calcular
+um valor entre 1 e 0
+
+20
+00:01:04,390 --> 00:01:08,169
+e usaremos um valor
+limite para decidir se
+
+21
+00:01:08,194 --> 00:01:11,860
+o resultado deve ser
+contado como 1 ou 0.
+
+22
+00:01:11,860 --> 00:01:15,590
+Quando você usa o modelo
+para prever valores
+
+23
+00:01:15,590 --> 00:01:18,010
+o valor resultante é
+classificado como 1 ou
+
+24
+00:01:18,010 --> 00:01:21,586
+a 0 dependendo de qual lado
+da linha limite ele cai.
+
+25
+00:01:22,550 --> 00:01:25,651
+Porque a classificação é uma técnica
+de aprendizagem supervisionada
+
+26
+00:01:25,651 --> 00:01:27,741
+nós retemos alguns dos
+dados de teste para
+
+27
+00:01:27,766 --> 00:01:29,904
+validar o modelo usando
+rótulos conhecidos.
+
+28
+00:01:31,120 --> 00:01:34,780
+Casos em que o modelo prevê um 1
+para uma observação de teste que
+
+29
+00:01:34,780 --> 00:01:39,435
+realmente tem o valor de 1, são
+considerados Positivos Verdadeiros.
+
+30
+00:01:39,435 --> 00:01:42,730
+Similarmente casos em
+que o modelo prevê 0, e
+
+31
+00:01:42,730 --> 00:01:45,143
+o rótulo real é 0, são
+Negativos Verdadeiros.
+
+32
+00:01:46,590 --> 00:01:49,550
+Se o modelo prevê 1,
+mas o rótulo real é 0,
+
+33
+00:01:49,550 --> 00:01:53,720
+isso é um Falso Positivo.
+E se o modelo prevê 0,
+
+34
+00:01:53,720 --> 00:01:57,600
+mas o valor real é 1,
+é um Falso Negativo.
+
+35
+00:01:59,030 --> 00:02:01,259
+A escolha do limite
+determina como as
+
+36
+00:02:01,284 --> 00:02:03,370
+previsões são
+atribuídas a classes.
+
+37
+00:02:03,370 --> 00:02:06,460
+Em alguns casos, um valor
+previsto pode estar muito próximo
+
+38
+00:02:06,460 --> 00:02:08,990
+do limite, mas ainda é
+erroneamente classificado.
+
+39
+00:02:10,490 --> 00:02:12,613
+Você pode mover o limite
+para controlar como
+
+40
+00:02:12,638 --> 00:02:14,500
+os valores previstos
+são classificados.
+
+41
+00:02:14,500 --> 00:02:17,191
+No caso do modelo do
+diabetes talvez seja
+
+42
+00:02:17,216 --> 00:02:20,266
+melhor ter mais Falsos
+Positivos, mas reduzir o
+
+43
+00:02:20,291 --> 00:02:23,481
+número de Falsos Negativos,
+para que mais pessoas
+
+44
+00:02:23,506 --> 00:02:26,160
+em risco de diabetes
+sejam identificadas.
+
+45
+00:02:26,160 --> 00:02:29,650
+O número de Positivos Verdadeiros,
+Falsos Positivos, Negativos Verdadeiros,
+
+46
+00:02:29,650 --> 00:02:31,770
+e Falsos Negativos,
+produzido pelo seu modelo
+
+47
+00:02:31,770 --> 00:02:34,410
+é crucial na avaliação
+de sua eficácia.
+
+48
+00:02:35,690 --> 00:02:38,530
+Estes valores são
+frequentemente mostrados no que
+
+49
+00:02:38,530 --> 00:02:41,860
+chamamos de Matriz de Confusão,
+e ela fornece a base para
+
+50
+00:02:41,860 --> 00:02:44,430
+calcular métricas de desempenho
+para o classificador.
+
+51
+00:02:46,150 --> 00:02:49,040
+A métrica mais
+simples é a acurácia
+
+52
+00:02:49,040 --> 00:02:52,690
+que é apenas o número de casos
+corretamente classificados
+
+53
+00:02:52,690 --> 00:02:54,420
+dividido pelo número
+total de casos.
+
+54
+00:02:55,800 --> 00:02:58,537
+Neste caso, existem cinco
+Positivos Verdadeiros e
+
+55
+00:02:58,537 --> 00:03:02,427
+quatro Negativos Verdadeiros, e
+há também dois Falsos Positivos e
+
+56
+00:03:02,427 --> 00:03:03,741
+nenhum Falso Negativos.
+
+57
+00:03:03,741 --> 00:03:06,693
+Isso nos dá nove previsões
+corretas de um total de
+
+58
+00:03:06,693 --> 00:03:12,268
+11, que é uma acurácia
+de 0,82 ou 82%.
+
+59
+00:03:12,268 --> 00:03:16,205
+Isso pode parecer um
+bom resultado, mas talvez
+
+60
+00:03:16,205 --> 00:03:19,069
+surpreendentemente, a
+acurácia não é tão útil
+
+61
+00:03:19,094 --> 00:03:21,833
+como uma medida do
+desempenho de um modelo.
+
+62
+00:03:23,000 --> 00:03:26,060
+Suponha que apenas 3% da
+população seja diabética.
+
+63
+00:03:26,060 --> 00:03:28,600
+Eu posso criar um modelo que
+simplesmente sempre prevê zero e
+
+64
+00:03:28,600 --> 00:03:32,220
+teria acurácia de 97%, mas é
+completamente inútil para
+
+65
+00:03:32,220 --> 00:03:33,990
+identificar potenciais
+diabéticos.
+
+66
+00:03:35,740 --> 00:03:39,420
+Uma métrica mais útil pode ser a
+fração de casos classificados
+
+67
+00:03:39,420 --> 00:03:41,320
+como positivos que são
+realmente positivos.
+
+68
+00:03:42,520 --> 00:03:44,850
+Esta métrica é conhecida
+como precisão.
+
+69
+00:03:44,850 --> 00:03:48,260
+Ou seja, de todos os casos
+classificados como positivos,
+
+70
+00:03:48,260 --> 00:03:50,000
+quais são verdadeiros
+e não falsos alarmes?
+
+71
+00:03:51,720 --> 00:03:56,140
+Neste caso, existem cinco Positivos
+Verdadeiros, e dois Falsos Positivos.
+
+72
+00:03:57,250 --> 00:04:04,213
+Então nossa precisão é 5 / (7),
+que é 0.71 ou 71% dos nossos
+
+73
+00:04:04,213 --> 00:04:06,298
+casos identificados
+como positivos são
+
+74
+00:04:06,323 --> 00:04:08,834
+realmente diabéticos e
+29% são alarmes falsos.
+
+75
+00:04:11,298 --> 00:04:13,123
+Em algumas situações,
+podemos querer
+
+76
+00:04:13,148 --> 00:04:14,702
+uma métrica que seja sensível a
+
+77
+00:04:14,702 --> 00:04:16,974
+a fração de casos positivos que
+identificamos corretamente.
+
+78
+00:04:16,974 --> 00:04:19,158
+Nós chamamos isso de recall.
+
+79
+00:04:19,158 --> 00:04:22,458
+É calculado como o número de
+Positivos Verdadeiros dividido pelos
+
+80
+00:04:22,458 --> 00:04:25,620
+Positivos Verdadeiros e
+Falsos Negativos combinados.
+
+81
+00:04:25,620 --> 00:04:26,350
+Em outras palavras,
+
+82
+00:04:26,350 --> 00:04:29,160
+Que fração de casos positivos
+estão corretamente identificados?
+
+83
+00:04:29,160 --> 00:04:32,823
+Neste caso, existem cinco
+Positivos Verdadeiros e
+
+84
+00:04:32,823 --> 00:04:34,480
+nenhum Falso Negativo.
+
+85
+00:04:34,480 --> 00:04:40,882
+Então, o nosso recall é 5/5, que é 1,
+ou 100%.
+
+86
+00:04:40,882 --> 00:04:42,705
+Então, neste caso,
+estamos identificando
+
+87
+00:04:42,730 --> 00:04:44,774
+corretamente todos os
+pacientes com diabetes.
+
+88
+00:04:46,956 --> 00:04:49,999
+Recall na verdade tem outro
+nome, às vezes é conhecido como
+
+89
+00:04:49,999 --> 00:04:52,871
+a Taxa Positiva Verdadeira, e
+existe uma taxa equivalente para
+
+90
+00:04:52,871 --> 00:04:55,939
+falsos positivos, em comparação
+com o número real de negativos.
+
+91
+00:04:57,440 --> 00:05:02,460
+Neste caso, temos dois Falsos Positivos
+e quatro Negativos Verdadeiros.
+
+92
+00:05:02,460 --> 00:05:09,194
+Portanto, nossa Taxa de Falsos
+Positivos é 2 / (6), que é 0.33.
+
+93
+00:05:09,264 --> 00:05:13,138
+Você deve se lembrar que as métricas
+que recebemos foram baseadas em
+
+94
+00:05:13,138 --> 00:05:19,004
+um limiar de cerca de 0.3, e podemos traçar
+a Taxa de Positivos Verdadeiros (TPR)
+
+95
+00:05:19,004 --> 00:05:22,220
+contra a Taxa de Falsos
+Positivos (FPR) desta maneira.
+
+96
+00:05:23,964 --> 00:05:27,087
+Se tivéssemos que mover o
+limite de volta para 0.5,
+
+97
+00:05:27,087 --> 00:05:31,459
+nossa verdadeira taxa positiva se
+torna 4 de 5, ou 0.8 e nossa Taxa
+
+98
+00:05:31,459 --> 00:05:35,620
+Falso Positiva é 1 de 6, ou 0,16,
+o que podemos traçar aqui.
+
+99
+00:05:37,710 --> 00:05:41,218
+Mover o limiar ainda
+mais, para 0.7, nos dá
+
+100
+00:05:41,243 --> 00:05:44,890
+uma Taxa de Positivos
+Verdadeiros de 2/5,
+
+101
+00:05:44,890 --> 00:05:49,155
+ou um 0.4, e uma Taxa de
+Falsos Positivos de 0,
+
+102
+00:05:49,155 --> 00:05:54,040
+e se traçamos isso para
+cada taxa limite possível
+
+103
+00:05:54,040 --> 00:05:57,250
+acabaríamos com uma linha
+curva que se parece com isso.
+
+104
+00:05:57,250 --> 00:05:59,213
+Agora isso é conhecido
+como Receiving
+
+105
+00:05:59,238 --> 00:06:01,304
+Operator Caracteristic,
+um gráfico ROC.
+
+106
+00:06:03,310 --> 00:06:05,950
+Agora a área sob
+a curva, ou AUC
+
+107
+00:06:05,950 --> 00:06:09,510
+como chamamos, é uma indicação
+de quão bem o modelo prevê.
+
+108
+00:06:10,798 --> 00:06:13,800
+Geralmente, você quer ver um
+grande AUC com uma curva ficando
+
+109
+00:06:13,800 --> 00:06:18,440
+o mais próximo possível do canto
+superior esquerdo do gráfico.
+
+110
+00:06:18,440 --> 00:06:21,395
+Um classificador perfeito
+iria acima na esquerda e
+
+111
+00:06:21,395 --> 00:06:23,703
+em seguida, ao longo do
+topo, dando uma AUC de 1.
+
+112
+00:06:23,703 --> 00:06:27,112
+Você pode sempre comparar
+com uma linha diagonal
+
+113
+00:06:27,137 --> 00:06:30,381
+que representa o desempenho
+que o modelo teria
+
+114
+00:06:30,381 --> 00:06:35,237
+se você simplesmente fizesse um
+palpite de 50/50. É uma AUC de 0.5.
+
+115
+00:06:35,237 --> 00:06:37,543
+Então você estaria
+aleatoriamente chutando
+
+116
+00:06:37,568 --> 00:06:40,118
+verdadeiro 50% das vezes
+e falso 50% das vezes.
+
+117
+00:06:40,118 --> 00:06:43,045
+Neste caso, nosso modelo
+tem uma AUC de 0.9.
+
+118
+00:06:43,045 --> 00:06:45,385
+Então, está definitivamente
+superando a adivinhação.
+

@@ -1,0 +1,492 @@
+0
+00:00:00,770 : 00:00:03,530
+Então, agora que entendemos um pouco mais sobre o que aprendizado de máquina
+
+1
+00:00:03,530 : 00:00:06,340
+é hora de pensar em como podemos trabalhar com dados para
+
+2
+00:00:06,340 : 00:00:07,790
+criar modelos preditivos.
+
+3
+00:00:07,790 : 00:00:10,380
+Agora, existem muitas ferramentas, serviços e programação
+
+4
+00:00:10,380 : 00:00:13,300
+línguas que os cientistas de dados usam para preparar um modelo e
+
+5
+00:00:13,300 : 00:00:14,750
+dados de teste.
+
+6
+00:00:14,750 : 00:00:17,110
+Neste curso, analisaremos um serviço fácil de usar para
+
+7
+00:00:17,110 : 00:00:17,970
+aprendizado de máquina e
+
+8
+00:00:17,970 : 00:00:21,220
+modelagem no Microsoft Azure, mas os mesmos princípios e
+
+9
+00:00:21,220 : 00:00:23,920
+o fluxo de trabalho se aplica a praticamente qualquer estrutura de aprendizado de máquina.
+
+10
+00:00:25,170 : 00:00:28,160
+O aprendizado de máquina do Azure é um serviço de nuvem no Azure
+
+11
+00:00:28,160 : 00:00:30,030
+que permite que você experimente com dados e
+
+12
+00:00:30,030 : 00:00:31,300
+criar modelos preditivos.
+
+13
+00:00:32,750 : 00:00:35,800
+Você começa com um conjunto de dados, que contém os dados com os quais você
+
+14
+00:00:35,800 : 00:00:39,460
+quer experimentar, e este conjunto de dados fornece a partida
+
+15
+00:00:39,460 : 00:00:42,410
+ponto de uma experiência na qual você definirá um fluxo de trabalho
+
+16
+00:00:42,410 : 00:00:45,790
+de transformações para aplicar aos dados como você explorá-lo e
+
+17
+00:00:45,790 : 00:00:46,850
+prepará-lo para modelagem.
+
+18
+00:00:48,490 : 00:00:50,180
+Você pode usar sua experiência para encontrar o mais
+
+19
+00:00:50,180 : 00:00:52,800
+maneiras eficazes de treinar um modelo de aprendizado de máquina e
+
+20
+00:00:52,800 : 00:00:56,510
+gere uma experiência preditiva a partir do seu experimento de treinamento.
+
+21
+00:00:56,510 : 00:00:58,690
+Que encapsula o modelo de aprendizado de máquina e
+
+22
+00:00:58,690 : 00:01:01,740
+transformações de dados associadas prontas para serem usadas com novos dados.
+
+23
+00:01:01,740 : 00:01:05,670
+Você pode publicar seu experimento preditivo
+
+24
+00:01:05,670 : 00:01:09,150
+como um serviço da Web e aplicativos clientes
+
+25
+00:01:09,150 : 00:01:12,840
+pode chamar esse serviço da web para gerar valores previstos.
+
+26
+00:01:15,550 : 00:01:17,970
+Bem, para começar com o aprendizado de máquina do Azure,
+
+27
+00:01:17,970 : 00:01:20,440
+você precisará provisionar um espaço de trabalho do ML do Azure.
+
+28
+00:01:20,440 : 00:01:23,720
+Agora há uma oferta gratuita de espaço de trabalho autônomo para
+
+29
+00:01:23,720 : 00:01:25,560
+introdução ao Azure ML.
+
+30
+00:01:25,560 : 00:01:28,720
+E também há um serviço completo integrado ao Azure.
+
+31
+00:01:28,720 : 00:01:29,220
+Nesse curso,
+
+32
+00:01:29,220 : 00:01:31,300
+vamos usar o espaço de trabalho completo do Azure, mas
+
+33
+00:01:31,300 : 00:01:33,090
+muito do que olhamos se aplica a ambos.
+
+34
+00:01:34,230 : 00:01:36,760
+Certo, vamos dar uma olhada em como vamos em frente e
+
+35
+00:01:36,760 : 00:01:39,850
+provisionar nosso espaço de trabalho em nosso portal do Azure.
+
+36
+00:01:40,990 : 00:01:45,390
+Então, eu vou em frente e adicionar um novo recurso.
+
+37
+00:01:45,390 : 00:01:48,520
+E eu poderia entrar e caçar, é nesses vários
+
+38
+00:01:48,520 : 00:01:53,340
+coloca é provável que seja ou eu poderia simplesmente procurar
+
+39
+00:01:53,340 : 00:01:56,090
+usando a caixa de pesquisa, por isso vamos fazer isso.
+
+40
+00:01:56,090 : 00:02:00,050
+Aprendizado de Máquina do Azure e
+
+41
+00:02:00,050 : 00:02:03,340
+Eu acho um monte de coisas que são bastante parecidos com isso
+
+42
+00:02:03,340 : 00:02:05,490
+incluindo essa coisa chamada espaço de trabalho de aprendizado de máquina.
+
+43
+00:02:05,490 : 00:02:08,290
+E esse é o que eu quero, então vamos em frente e
+
+44
+00:02:08,289 : 00:02:11,520
+crie nosso espaço de trabalho que é escolher criar.
+
+45
+00:02:13,290 : 00:02:16,240
+E eu vou ter que definir algum tipo de nome para
+
+46
+00:02:16,240 : 00:02:20,930
+meu espaço de trabalho, por isso vou chamá-lo de AMLWS.
+
+47
+00:02:20,930 : 00:02:25,830
+Faz apenas uma pequena verificação para ter certeza de que eu não
+
+48
+00:02:25,830 : 00:02:28,300
+tenho algo com esse nome, então tudo bem.
+
+49
+00:02:28,300 : 00:02:31,860
+E podemos colocá-lo em um grupo de recursos existente ou
+
+50
+00:02:31,860 : 00:02:33,350
+crie um novo grupo de recursos.
+
+51
+00:02:33,350 : 00:02:36,280
+Grupos de recursos são usados ​​apenas para manter todas as coisas relacionadas
+
+52
+00:02:36,280 : 00:02:38,110
+juntos, então eu vou criar um novo,
+
+53
+00:02:39,540 : 00:02:43,090
+chamá-lo de recursos do AzureML.
+
+54
+00:02:44,430 : 00:02:47,470
+E eu posso escolher o local onde eu quero implantar isso, então
+
+55
+00:02:47,470 : 00:02:53,390
+Eu vou em frente e implantar, digamos, Europa Ocidental.
+
+56
+00:02:53,390 : 00:02:56,380
+E eu vou precisar de uma conta de armazenamento para acompanhar
+
+57
+00:02:57,640 : 00:02:58,990
+esse espaço de trabalho do Azure ML.
+
+58
+00:02:58,990 : 00:03:01,010
+A conta de armazenamento é usada para armazenar
+
+59
+00:03:01,010 : 00:03:03,450
+os modelos que eu vou criar e os dados que eu irei trabalhar
+
+60
+00:03:03,450 : 00:03:05,670
+com todo esse tipo de coisa no espaço de trabalho.
+
+61
+00:03:05,670 : 00:03:08,080
+Então, vamos criar um novo e eu preciso dar um nome a ele
+
+62
+00:03:08,080 : 00:03:10,900
+e essa conta de armazenamento que já existe lá já existe.
+
+63
+00:03:10,900 : 00:03:13,230
+Então, vamos criar um nome alternativo para isso, então
+
+64
+00:03:13,230 : 00:03:17,200
+nós vamos chamá-lo de anlstore12345,
+
+65
+00:03:17,200 : 00:03:19,850
+algo parecido.
+
+66
+00:03:19,850 : 00:03:22,600
+E sim, temos um pequeno carrapato lá para nos dizer
+
+67
+00:03:22,600 : 00:03:25,570
+que esse é um nome único, na verdade eu disse amlstore.
+
+68
+00:03:25,570 : 00:03:27,900
+Nós apenas corrigiremos isso, ok
+
+69
+00:03:27,900 : 00:03:32,850
+Por isso, escolhi uma camada de preços do espaço de trabalho.
+
+70
+00:03:32,850 : 00:03:35,550
+Bem, eu realmente não tenho escolha, eu vou com
+
+71
+00:03:35,550 : 00:03:37,860
+o nível de preço padrão aqui, então vamos com isso.
+
+72
+00:03:37,860 : 00:03:41,060
+E o que vai acontecer aqui é que eu vou ser cobrado por
+
+73
+00:03:41,060 : 00:03:42,170
+serviços da web que eu uso.
+
+74
+00:03:42,170 : 00:03:45,770
+Quando publico meus modelos de aprendizado de máquina como serviços da web,
+
+75
+00:03:45,770 : 00:03:47,470
+Eu serei cobrado por uso.
+
+76
+00:03:47,470 : 00:03:49,160
+Então, eu só sou realmente carregado quando eu realmente uso
+
+77
+00:03:49,160 : 00:03:51,630
+os modelos preditivos que eu crio.
+
+78
+00:03:51,630 : 00:03:55,320
+E o que eu recebo é cobrado por isso é baseado no meu plano de preços, então
+
+79
+00:03:55,320 : 00:03:57,260
+Eu vou seguir em frente e escolher um plano de preços, e
+
+80
+00:03:57,260 : 00:04:00,640
+na verdade, vou escolher o plano de preços DEVTEST,
+
+81
+00:04:00,640 : 00:04:03,225
+o que me dá um total de 2 horas de computação,
+
+82
+00:04:03,225 : 00:04:06,270
+1.000 transações para custo zero.
+
+83
+00:04:06,270 : 00:04:07,990
+Então, para mim, apenas aprendendo sobre isso,
+
+84
+00:04:07,990 : 00:04:11,680
+que é uma escolha perfeita para mim, então vamos levar isso, e
+
+85
+00:04:11,680 : 00:04:13,629
+então, estamos prontos para ir, por isso, basta clicar em Criar.
+
+86
+00:04:15,702 : 00:04:19,498
+E vai o nosso portal do Azure para criar nossa máquina do Azure
+
+87
+00:04:19,498 : 00:04:21,194
+espaço de trabalho de aprendizagem,
+
+88
+00:04:21,194 : 00:04:24,770
+nós vamos dar um minuto ou dois para sermos criados.
+
+89
+00:04:30,760 : 00:04:33,500
+E quando a implantação é bem sucedida, fico um pouco
+
+90
+00:04:33,500 : 00:04:36,950
+mensagem aqui me dizendo que tudo está pronto.
+
+91
+00:04:36,950 : 00:04:42,290
+E eu posso procurar meus grupos de recursos aqui,
+
+92
+00:04:42,290 : 00:04:45,190
+aqui está o meu grupo de recursos AzureMLResources.
+
+93
+00:04:45,190 : 00:04:49,875
+E eu posso ver que o que é realmente implantado é o meu AML.WS
+
+94
+00:04:49,875 : 00:04:53,436
+espaço de trabalho que pedimos e também uma loja,
+
+95
+00:04:53,436 : 00:04:57,936
+a conta de armazenamento amlstore12345 que eu queria
+
+96
+00:04:57,936 : 00:05:02,550
+criar para armazenar os modelos e arquivos que eu vou trabalhar.
+
+97
+00:05:02,550 : 00:05:05,544
+E também, este plano aqui que é o meu plano de aprendizado de máquina,
+
+98
+00:05:05,544 : 00:05:08,362
+que é como nós efetivamente vamos pagar pelo uso de
+
+99
+00:05:08,362 : 00:05:11,550
+o serviço, então esses três recursos são implantados juntos.
+
+100
+00:05:12,670 : 00:05:14,988
+E eu posso ir e dar uma olhada no meu espaço de trabalho e
+
+101
+00:05:14,988 : 00:05:17,998
+o que eu posso ver aqui é apenas alguns detalhes sobre isso, mas
+
+102
+00:05:17,998 : 00:05:21,262
+a coisa mais importante aqui é a capacidade de lançar máquina
+
+103
+00:05:21,262 : 00:05:22,290
+estúdio de aprendizagem.
+
+104
+00:05:22,290 : 00:05:23,571
+E eu acho ir e
+
+105
+00:05:23,571 : 00:05:27,810
+clique que ele abre em uma nova guia no meu navegador, e
+
+106
+00:05:27,810 : 00:05:32,559
+Eu posso ir em frente e apenas cantar usando minhas mesmas credenciais,
+
+107
+00:05:39,420 : 00:05:42,456
+E isso me dá o ambiente que eu vou usar
+
+108
+00:05:42,456 : 00:05:45,220
+para trabalhar com minhas experiências de aprendizado de máquina.
+
+109
+00:05:45,220 : 00:05:47,070
+Agora você pode estar se perguntando por que, se eu acabei de criar uma marca
+
+110
+00:05:47,070 : 00:05:48,900
+espaço mais novo porque já existem algumas experiências nele.
+
+111
+00:05:48,900 : 00:05:50,050
+E isso porque,
+
+112
+00:05:50,050 : 00:05:53,500
+você pode ter vários espaços de trabalho associados à sua conta, então
+
+113
+00:05:53.500 : 00:05:56.524
+você pode ver que eu já tenho um par de espaços de trabalho
+
+114
+00:05:56,524 : 00:06:00,130
+até onde eu já trabalhei com alguns experimentos.
+
+115
+00:06:00,130 : 00:06:02,720
+E eu sempre posso voltar para o que acabei de criar
+
+116
+00:06:02,720 : 00:06:04,160
+que estava na Europa Ocidental,
+
+117
+00:06:05,490 : 00:06:09,890
+lá é o meu espaço de trabalho MLWS, se eu mudar para esse,
+
+118
+00:06:16,753 : 00:06:20,156
+E você pode ver que eu tenho um novo espaço de trabalho vazio com
+
+119
+00:06:20,156 : 00:06:23,692
+sem experimentos, nada mais nessas outras pastas aqui
+
+120
+00:06:23,692 : 00:06:27,290
+ou, pronto para começar a trabalhar com alguns dados.
+
+121
+00:06:27,290 : 00:06:28,268
+E experimentando e
+
+122
+00:06:28,268 : 00:06:30,590
+criando alguns serviços web com modelos preditivos.
+

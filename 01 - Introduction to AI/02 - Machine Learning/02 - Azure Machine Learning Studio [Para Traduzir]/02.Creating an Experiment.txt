@@ -1,0 +1,1043 @@
+0
+00:00:01,620 --> 00:00:03,330
+Depois de provisionar o espaço de trabalho,
+
+1
+00:00:03,330 --> 00:00:05,190
+Você pode começar a experimentar dados.
+
+2
+00:00:07,390 --> 00:00:10,700
+Então, aqui estou no meu espaço de trabalho do Azure Machine Learning
+
+3
+00:00:10,700 --> 00:00:13,020
+no Azure Machine Learning Studio e
+
+4
+00:00:13,020 --> 00:00:15,080
+Estou pronto para começar a trabalhar com alguns dados.
+
+5
+00:00:15,080 --> 00:00:16,211
+E agora, eu poderia ir em frente e
+
+6
+00:00:16,211 --> 00:00:17,830
+crie uma experiência neste momento.
+
+7
+00:00:17,830 --> 00:00:21,340
+Mas eu quero trabalhar com alguns dados e colocar esses dados em
+
+8
+00:00:21,340 --> 00:00:24,830
+aqui eu preciso enviar os conjuntos de dados que eu preciso.
+
+9
+00:00:24,830 --> 00:00:28,320
+Agora existem alguns conjuntos de dados de amostra que são fornecidos
+
+10
+00:00:28,320 --> 00:00:30,590
+com o Aprendizado de Máquina do Azure para ajudá-lo a começar.
+
+11
+00:00:30,590 --> 00:00:33,320
+Mas vou carregar alguns conjuntos de dados meus e
+
+12
+00:00:33,320 --> 00:00:35,850
+Estes são apenas alguns arquivos de texto que eu tenho localmente.
+
+13
+00:00:35,850 --> 00:00:39,370
+Então vamos em frente e dizer que queremos fazer upload de novos conjuntos de dados.
+
+14
+00:00:40,410 --> 00:00:42,970
+E eu vou e navego e carrego.
+
+15
+00:00:42,970 --> 00:00:48,550
+Eu tenho um aqui que é um registro de algum exercício que
+
+16
+00:00:48,550 --> 00:00:53,630
+meus participantes em uma clínica de saúde estão realizando.
+
+17
+00:00:53,630 --> 00:00:55,140
+Então eu tenho colocado eles no ritmo deles
+
+18
+00:00:55,140 --> 00:00:56,340
+e eles estão fazendo algum exercício, e
+
+19
+00:00:56,340 --> 00:00:59,330
+Eu tenho acompanhado o que está acontecendo enquanto eles se exercitam.
+
+20
+00:00:59,330 --> 00:01:02,650
+Então eu tenho todos os dados neste arquivo exercise.csv.
+
+21
+00:01:02,650 --> 00:01:05,837
+É um arquivo separado por vírgula com um cabeçalho, então eu vou em frente e
+
+22
+00:01:05,837 --> 00:01:06,554
+carregue isso.
+
+23
+00:01:09,756 --> 00:01:11,976
+Enquanto isso é fazer upload em segundo plano,
+
+24
+00:01:11,976 --> 00:01:14,330
+Também carregarei outro conjunto de dados.
+
+25
+00:01:14,330 --> 00:01:17,250
+Além dos detalhes do exercício, eles foram
+
+26
+00:01:17,250 --> 00:01:21,040
+tendo, eu tenho detalhes sobre as calorias que eles queimaram
+
+27
+00:01:21,040 --> 00:01:22,380
+enquanto eles estavam se exercitando.
+
+28
+00:01:22,380 --> 00:01:24,580
+Então, vamos em frente e fazer o upload desse arquivo também.
+
+29
+00:01:26,000 --> 00:01:28,660
+E eu posso ver que tenho esse tipo de status de corrida
+
+30
+00:01:28,660 --> 00:01:29,790
+aqui me dizendo o que está acontecendo.
+
+31
+00:01:29,790 --> 00:01:32,080
+O primeiro já está concluído e
+
+32
+00:01:32,080 --> 00:01:35,020
+o segundo está a caminho, então eu posso me livrar do primeiro
+
+33
+00:01:35,020 --> 00:01:38,770
+apenas clicando em OK e, em seguida, faça o mesmo para o segundo.
+
+34
+00:01:38,770 --> 00:01:41,670
+Então agora eu tenho meus dois conjuntos de dados personalizados enviados para
+
+35
+00:01:41,670 --> 00:01:42,989
+meu ambiente pronto para trabalhar.
+
+36
+00:01:44,970 --> 00:01:48,445
+Então, vamos criar um novo experimento neste momento e
+
+37
+00:01:48,445 --> 00:01:51,671
+Gostaria apenas de começar, vá em frente e crie novos e
+
+38
+00:01:51,671 --> 00:01:56,070
+crie uma experiência em branco e vamos chamar isso de calorias.
+
+39
+00:01:58,264 --> 00:02:01,017
+Apenas para conseguir algo mais fácil de trabalhar,
+
+40
+00:02:01,017 --> 00:02:03,510
+Eu não preciso desse mapa, então vamos apenas esconder isso.
+
+41
+00:02:03,510 --> 00:02:08,020
+E o que eu recebo no Machine Learning Studio é esse
+
+42
+00:02:08,020 --> 00:02:09,920
+ambiente aqui onde eu tenho no lado esquerdo,
+
+43
+00:02:09,920 --> 00:02:11,930
+todas as várias coisas que eu gostaria de trabalhar,
+
+44
+00:02:11,930 --> 00:02:14,236
+todos os módulos que podem estar envolvidos no meu experimento.
+
+45
+00:02:14,236 --> 00:02:17,310
+No lado direito eu tenho um painel de propriedades que se relaciona com
+
+46
+00:02:17,310 --> 00:02:19,120
+a coisa atualmente selecionada.
+
+47
+00:02:19,120 --> 00:02:19,720
+E bem no meio
+
+48
+00:02:19,720 --> 00:02:23,340
+Eu tenho essa tela onde eu vou arrastar e soltar os vários
+
+49
+00:02:23,340 --> 00:02:25,070
+coisas que precisam trabalhar no meu experimento.
+
+50
+00:02:25,070 --> 00:02:28,970
+Então, muitas vezes, se você está criando modelos de aprendizado de máquina
+
+51
+00:02:28,970 --> 00:02:32,200
+você pode fazer no código, você pode fazê-lo em Python ou R ou qualquer um dos
+
+52
+00:02:32,200 --> 00:02:35,140
+essas outras linguagens que são usadas para esse tipo de coisa.
+
+53
+00:02:35,140 --> 00:02:37,410
+E você pode fazer um pouco disso aqui também,
+
+54
+00:02:37,410 --> 00:02:41,510
+mas o bom do Azure Machine Learning Studio é esse
+
+55
+00:02:41,510 --> 00:02:44,940
+arrastar e soltar o ambiente apenas torna as coisas um pouco mais fáceis, então
+
+56
+00:02:44,940 --> 00:02:47,090
+Eu vou pegar meus conjuntos de dados.
+
+57
+00:02:47,090 --> 00:02:48,540
+E nós só vamos pegar esses.
+
+58
+00:02:48,540 --> 00:02:52,090
+Então, para calorias, e eu tenho exercício.
+
+59
+00:02:52,090 --> 00:02:53,740
+Então vamos arrastá-los para fora e
+
+60
+00:02:53,740 --> 00:02:55,520
+não há muito espaço para trabalhar aqui.
+
+61
+00:02:55,520 --> 00:02:58,420
+Então eu vou baixar o zoom um pouquinho
+
+62
+00:02:58,420 --> 00:03:00,020
+podemos ver os dois.
+
+63
+00:03:00,020 --> 00:03:01,780
+E eu posso ver que tenho esses módulos.
+
+64
+00:03:01,780 --> 00:03:04,150
+E cada um dos módulos tem essa pequena porta de saída.
+
+65
+00:03:04,150 --> 00:03:07,390
+E se eu passar o mouse, recebo o nome dele, chamado de conjunto de dados.
+
+66
+00:03:07,390 --> 00:03:09,340
+E eu sempre posso visualizar isso.
+
+67
+00:03:09,340 --> 00:03:11,670
+Eu apenas clique com o botão direito e clique em Visualizar.
+
+68
+00:03:12,780 --> 00:03:16,120
+E quando eu faço isso, eu posso ver as várias colunas e
+
+69
+00:03:16,120 --> 00:03:17,640
+algumas visualizações dos dados lá.
+
+70
+00:03:17,640 --> 00:03:21,010
+Eu posso ver que existem 15.000 linhas de dados, há oito colunas.
+
+71
+00:03:21,010 --> 00:03:23,800
+E posso selecionar cada coluna e ver o que há nela.
+
+72
+00:03:23,800 --> 00:03:26,610
+Eu tenho o ID do usuário, o sexo, a idade,
+
+73
+00:03:26,610 --> 00:03:29,720
+a altura, o peso, quanto tempo eles estavam se exercitando para
+
+74
+00:03:29,720 --> 00:03:33,030
+em minutos, os batimentos cardíacos e a temperatura corporal.
+
+75
+00:03:33,030 --> 00:03:34,980
+E eu posso ver quando olho para estes
+
+76
+00:03:34,980 --> 00:03:36,980
+Eu posso ver as estatísticas para esses dados.
+
+77
+00:03:36,980 --> 00:03:40,030
+Então, por exemplo, se eu der uma olhada no ritmo cardíaco aqui eu posso ver
+
+78
+00:03:40,030 --> 00:03:43,300
+a frequência cardíaca média, a mediana, o mínimo,
+
+79
+00:03:43,300 --> 00:03:45,310
+o máximo e o desvio padrão.
+
+80
+00:03:45,310 --> 00:03:47,980
+Eu posso ver que existem 59 valores únicos, não faltam
+
+81
+00:03:47,980 --> 00:03:50,566
+valores, então temos uma medida da frequência cardíaca para todos.
+
+82
+00:03:50,566 --> 00:03:54,670
+E eu posso ver uma visualização disso como um histograma.
+
+83
+00:03:54,670 --> 00:03:57,920
+Que, como cientista de dados, é útil para mim,
+
+84
+00:03:57,920 --> 00:04:01,200
+Porque eu posso ver que parece uma distribuição mais ou menos normal
+
+85
+00:04:01,200 --> 00:04:04,790
+que eu esperaria para alguns dados amostrados aleatoriamente.
+
+86
+00:04:04,790 --> 00:04:08,490
+Então eu tenho a capacidade de apenas dar uma rápida olhada
+
+87
+00:04:08,490 --> 00:04:12,180
+os dados usando essa habilidade para visualizá-lo.
+
+88
+00:04:12,180 --> 00:04:14,314
+Agora, obviamente, temos esses dois conjuntos de dados.
+
+89
+00:04:14,314 --> 00:04:17,330
+E uma das coisas que eu quero fazer é conectá-los.
+
+90
+00:04:17,330 --> 00:04:19,070
+Então, eu poderia ir e adicionar um módulo.
+
+91
+00:04:19,070 --> 00:04:24,070
+Nós vamos apenas usar este módulo de dados de junção e
+
+92
+00:04:24,070 --> 00:04:25,650
+Eu posso arrastar para a esquerda e para a direita.
+
+93
+00:04:25,650 --> 00:04:27,300
+Então é só arrastar e soltar e
+
+94
+00:04:27,300 --> 00:04:29,749
+Eu posso começar a conectar meu fluxo de dados.
+
+95
+00:04:29,749 --> 00:04:32,576
+Eu vejo uma pequena linha vermelha de aviso aqui que diz que algo não está
+
+96
+00:04:32,576 --> 00:04:34,134
+bastante configurado corretamente ainda.
+
+97
+00:04:34,134 --> 00:04:36,473
+E isso é porque eu preciso dizer a ela como juntar esses dois
+
+98
+00:04:36,473 --> 00:04:37,000
+conjuntos de dados.
+
+99
+00:04:37,000 --> 00:04:38,350
+Nós vimos os dados do exercício.
+
+100
+00:04:38,350 --> 00:04:40,476
+Se dermos uma olhada rápida nos dados de calorias,
+
+101
+00:04:40,476 --> 00:04:41,919
+nós veremos o que está lá.
+
+102
+00:04:44,207 --> 00:04:47,741
+E, novamente, há um ID de usuário e o número de calorias que foi
+
+103
+00:04:47,741 --> 00:04:50,103
+queimado durante a sessão de exercícios aqui.
+
+104
+00:04:50,103 --> 00:04:52,940
+Então, o que vou fazer é lançar essa coluna
+
+105
+00:04:52,940 --> 00:04:56,098
+seletor, que vai me deixar selecionar a partir do disponível
+
+106
+00:04:56,098 --> 00:04:58,040
+colunas que eu quero participar.
+
+107
+00:04:58,040 --> 00:05:02,574
+Então, da mesa do lado esquerdo, que é o meu exercício,
+
+108
+00:05:02,574 --> 00:05:04,705
+nós vamos pegar o ID do usuário.
+
+109
+00:05:04,705 --> 00:05:07,535
+E da mesa da direita, ou
+
+110
+00:05:07,535 --> 00:05:09,900
+Eu posso fazer a mesma coisa novamente.
+
+111
+00:05:09,900 --> 00:05:11,840
+Eu posso selecionar as colunas disponíveis.
+
+112
+00:05:11,840 --> 00:05:14,260
+Há também essa opção para selecionar usando regras.
+
+113
+00:05:14,260 --> 00:05:17,090
+Então eu poderia começar com nenhuma das colunas e
+
+114
+00:05:17,090 --> 00:05:18,220
+então selecione os que eu quero.
+
+115
+00:05:18,220 --> 00:05:19,780
+Ou comece com todas as colunas e
+
+116
+00:05:19,780 --> 00:05:21,630
+então exclua aqueles que eu não quero.
+
+117
+00:05:21,630 --> 00:05:25,800
+Vou começar sem colunas e posso escolher por
+
+118
+00:05:25,800 --> 00:05:28,210
+vários critérios diferentes para encontrar as colunas que eu quero.
+
+119
+00:05:28,210 --> 00:05:30,570
+Eu só vou usar o nome da coluna aqui e
+
+120
+00:05:30,570 --> 00:05:32,180
+é o ID do usuário que eu estou procurando.
+
+121
+00:05:32,180 --> 00:05:35,550
+Portanto, há algumas maneiras diferentes de selecionar colunas.
+
+122
+00:05:35,550 --> 00:05:38,530
+Eu posso fazer isso e agora meu pequeno aviso vermelho foi embora
+
+123
+00:05:38,530 --> 00:05:40,210
+porque eu tenho esses links.
+
+124
+00:05:40,210 --> 00:05:42,880
+Ainda há um pouco de configuração que quero fazer.
+
+125
+00:05:42,880 --> 00:05:45,760
+É um número assim, o caso de partida não importará.
+
+126
+00:05:45,760 --> 00:05:47,070
+Eu quero mudar o tipo de junção.
+
+127
+00:05:47,070 --> 00:05:50,720
+Eu vou fazer uma junção externa esquerda, de modo que se eu tiver alguma
+
+128
+00:05:50,720 --> 00:05:53,460
+registros de exercícios onde eu não tenho as calorias,
+
+129
+00:05:53,460 --> 00:05:56,370
+Eu ainda vou manter os detalhes do lado do exercício e
+
+130
+00:05:56,370 --> 00:05:58,440
+apenas tem um valor nulo para as calorias lá.
+
+131
+00:05:59,490 --> 00:06:01,560
+E, então, a outra coisa que quero fazer é
+
+132
+00:06:01,560 --> 00:06:05,150
+Quero especificar que não quero manter a coluna da direita.
+
+133
+00:06:05,150 --> 00:06:07,820
+Eu realmente não preciso de duas cópias da coluna de ID do usuário.
+
+134
+00:06:07,820 --> 00:06:09,390
+Então não vamos manter o direito,
+
+135
+00:06:09,390 --> 00:06:10,500
+vamos apenas manter a da esquerda.
+
+136
+00:06:12,090 --> 00:06:15,170
+Então, agora, se eu tentar visualizar a junção,
+
+137
+00:06:15,170 --> 00:06:16,840
+você verá que está acinzentado no momento.
+
+138
+00:06:16,840 --> 00:06:19,480
+E isso é porque eu tenho que executar o experimento neste momento.
+
+139
+00:06:19,480 --> 00:06:20,320
+Então eu vou em frente e corro.
+
+140
+00:06:26,031 --> 00:06:28,522
+E isso vai, em primeiro lugar, colocar a fila no trabalho e
+
+141
+00:06:28,522 --> 00:06:31,240
+em seguida, comece a executá-lo e apenas empurre esses dados.
+
+142
+00:06:31,240 --> 00:06:33,200
+Eu posso ver um pequeno texto verde que me diz que está terminado
+
+143
+00:06:33,200 --> 00:06:37,330
+correndo e agora eu posso visualizar a saída desse desenho.
+
+144
+00:06:37,330 --> 00:06:41,060
+Então, isso é muito útil, posso ver o ID do usuário e todo o caminho
+
+145
+00:06:41,060 --> 00:06:43,150
+Eu tenho as calorias juntas no final.
+
+146
+00:06:43,150 --> 00:06:45,530
+Então agora eu tenho todos os dados que eu preciso para trabalhar
+
+147
+00:06:45,530 --> 00:06:48,630
+para começar a analisar como os vários
+
+148
+00:06:48,630 --> 00:06:52,340
+métricas diferentes medidas quando as pessoas estão se exercitando
+
+149
+00:06:52,340 --> 00:06:54,080
+o número de calorias que eles queimam.
+
+150
+00:06:55,320 --> 00:06:59,570
+Eu poderia continuar a construir este experimento aqui, mas
+
+151
+00:06:59,570 --> 00:07:02,780
+Eu digo o que eu quero fazer é começar a visualizar os dados usando
+
+152
+00:07:02,780 --> 00:07:06,450
+algo chamado um notebook, um notebook Jupyter, e para fazer isso
+
+153
+00:07:06,450 --> 00:07:09,090
+Eu vou ter que convertê-lo em um formato que eu possa abrir
+
+154
+00:07:09,090 --> 00:07:12,750
+nos notebooks da Jupyter, então vou convertê-lo para o formato CSV.
+
+155
+00:07:12,750 --> 00:07:13,860
+Foi assim que começou.
+
+156
+00:07:13,860 --> 00:07:16,980
+Mas claro, começou a passar por este fluxo de trabalho agora, então
+
+157
+00:07:16,980 --> 00:07:19,360
+há um formato interno que está sendo usado.
+
+158
+00:07:19,360 --> 00:07:20,610
+Então, vamos convertê-lo de volta para CSV.
+
+159
+00:07:20,610 --> 00:07:24,680
+Eu posso apenas executar esse módulo selecionado.
+
+160
+00:07:24,680 --> 00:07:26,670
+Então não preciso executar todo o experimento novamente.
+
+161
+00:07:26,670 --> 00:07:27,520
+Apenas esse módulo.
+
+162
+00:07:30,162 --> 00:07:34,215
+E quando isso termina, eu tenho minha saída CSV e isso significa que eu
+
+163
+00:07:34,215 --> 00:07:38,270
+pode clicar com o botão direito aqui e não apenas visualizar isso,
+
+164
+00:07:38,270 --> 00:07:41,170
+Eu vou abri-lo em um novo caderno.
+
+165
+00:07:41,170 --> 00:07:43,240
+Eu posso escolher a linguagem do notebook que eu quero
+
+166
+00:07:43,240 --> 00:07:44,590
+use neste caso.
+
+167
+00:07:44,590 --> 00:07:45,640
+Eu vou usar o Python 3.
+
+168
+00:07:45,640 --> 00:07:49,440
+Agora estou escolhendo o Python e ao longo deste curso vamos usar
+
+169
+00:07:49,440 --> 00:07:52,280
+Python como o tipo de linguagem de programação de escolha.
+
+170
+00:07:52,280 --> 00:07:55,050
+É uma linguagem de programação muito usada pelos dados
+
+171
+00:07:55,050 --> 00:07:57,100
+cientistas e engenheiros de IA.
+
+172
+00:07:57,100 --> 00:07:58,780
+Então você pode usar outros idiomas.
+
+173
+00:07:58,780 --> 00:08:01,550
+Você poderia usar R se você preferir e mais tarde quando nós olharmos
+
+174
+00:08:01,550 --> 00:08:04,740
+na construção de um software, você pode usar qualquer idioma que quiser
+
+175
+00:08:04,740 --> 00:08:07,350
+como C # ou Java ou qualquer coisa assim.
+
+176
+00:08:07,350 --> 00:08:09,490
+Mas vamos nos concentrar em usar o Python neste curso,
+
+177
+00:08:09,490 --> 00:08:12,750
+só porque é comumente usado com ciência de dados.
+
+178
+00:08:13,780 --> 00:08:15,880
+E você pode ver que já é povoado um par de
+
+179
+00:08:15,880 --> 00:08:18,960
+essas coisas que chamamos de células em minha pasta de trabalho.
+
+180
+00:08:18,960 --> 00:08:21,130
+Tem algum código aqui que é realmente só está definindo
+
+181
+00:08:21,130 --> 00:08:24,200
+o ambiente e conectando-se ao meu espaço de trabalho e
+
+182
+00:08:24,200 --> 00:08:29,050
+obtendo os resultados dessa saída genérica de CSV.
+
+183
+00:08:29,050 --> 00:08:33,050
+Então, se eu vou e corro, eu tenho um pequeno círculo aqui,
+
+184
+00:08:33,050 --> 00:08:35,310
+muito brevemente preenchido lá como o kernel estava sendo executado e
+
+185
+00:08:35,310 --> 00:08:36,830
+então esvaziou para me dizer que eu tinha acabado de correr.
+
+186
+00:08:36,830 --> 00:08:38,650
+E agora eu tenho o quadro de comando
+
+187
+00:08:38,650 --> 00:08:41,950
+que só vai me mostrar o quadro de dados contendo os dados.
+
+188
+00:08:41,950 --> 00:08:45,150
+Isso foi extraído desse arquivo CSV.
+
+189
+00:08:45,150 --> 00:08:46,810
+Então aqui estão todos os meus dados.
+
+190
+00:08:46,810 --> 00:08:49,430
+Eu posso ver tudo isso lá.
+
+191
+00:08:49,430 --> 00:08:51,370
+E eu vou apenas desmoronar isso.
+
+192
+00:08:51,370 --> 00:08:53,170
+Apenas para que não ocupe muito espaço.
+
+193
+00:08:54,630 --> 00:08:56,500
+Realmente o que eu quero fazer é realmente visualizar a ideia.
+
+194
+00:08:56,500 --> 00:08:58,070
+Eu quero ver as relações nos dados.
+
+195
+00:08:58,070 --> 00:09:00,400
+E uma ótima maneira de fazer isso é escrever algum código que irá
+
+196
+00:09:00,400 --> 00:09:03,900
+gerar algum tipo de CHAR ou visualização.
+
+197
+00:09:03,900 --> 00:09:06,290
+Então, eu tenho alguns códigos aqui que vou usar.
+
+198
+00:09:07,320 --> 00:09:09,300
+E eu vou falar com você brevemente e, basicamente,
+
+199
+00:09:09,300 --> 00:09:14,400
+estamos usando algo chamado matplotlib, que é a biblioteca
+
+200
+00:09:14,400 --> 00:09:17,790
+dentro do Python que é usado para traçar as coisas visualmente.
+
+201
+00:09:17,790 --> 00:09:20,770
+E eu tenho esse pequeno sinal de porcentagem aqui é o que nós
+
+202
+00:09:20,770 --> 00:09:25,220
+chamar uma mágica, e está dizendo a este ambiente nobic Jupyter
+
+203
+00:09:25,220 --> 00:09:28,902
+que eu quero exibir meus gráficos em linha quando eu o executo.
+
+204
+00:09:28,902 --> 00:09:31,155
+Então, vamos exibir o gráfico inline enquanto o executamos.
+
+205
+00:09:31,155 --> 00:09:36,140
+Estou importando uma biblioteca chamada Seaborn que é uma biblioteca que
+
+206
+00:09:36,140 --> 00:09:39,210
+tem um monte de diferentes funções incorporadas para
+
+207
+00:09:39,210 --> 00:09:41,160
+visualizações de dados.
+
+208
+00:09:42,200 --> 00:09:45,730
+Estou especificando que eu só quero usar essas colunas numéricas,
+
+209
+00:09:45,730 --> 00:09:48,600
+Idade, Altura, Peso, Duração, Frequência Cardíaca, Temperatura Corporal e
+
+210
+00:09:48,600 --> 00:09:49,210
+Calorias
+
+211
+00:09:49,210 --> 00:09:51,930
+Então, essas são as colunas numéricas no meu conjunto de dados.
+
+212
+00:09:51,930 --> 00:09:53,763
+E eu quero ver como eles se comparam.
+
+213
+00:09:53,763 --> 00:09:57,059
+Muito aprendizado de máquina é baseado em correlação e
+
+214
+00:09:57,059 --> 00:09:59,403
+relação entre valores numéricos.
+
+215
+00:09:59,403 --> 00:10:02,460
+Então, vamos dar uma olhada em como eles se parecem.
+
+216
+00:10:02,460 --> 00:10:05,084
+E nós vamos criar algo chamado PeerPlot.
+
+217
+00:10:05,084 --> 00:10:08,379
+E um PeerPlot é basicamente apenas um gráfico de dispersão
+
+218
+00:10:08,379 --> 00:10:11,960
+plotando cada valor numérico entre si.
+
+219
+00:10:11,960 --> 00:10:13,430
+E nós vamos fazer isso como uma grade.
+
+220
+00:10:13,430 --> 00:10:18,180
+Então, vamos ver um tipo de matriz de dispersão geral com
+
+221
+00:10:18,180 --> 00:10:20,910
+visualizações de cada coluna numérica em comparação com
+
+222
+00:10:20,910 --> 00:10:22,620
+todas as outras colunas numéricas.
+
+223
+00:10:22,620 --> 00:10:23,750
+Então, vá em frente e execute esse código.
+
+224
+00:10:25,530 --> 00:10:29,390
+Eu recebo um pequeno aviso porque está importando uma biblioteca e
+
+225
+00:10:29,390 --> 00:10:33,120
+Há alguns tipos de mensagens de aviso quando isso acontece.
+
+226
+00:10:33,120 --> 00:10:35,987
+Mas então o que deve acontecer quando o código terminar de rodar?
+
+227
+00:10:43,624 --> 00:10:46,010
+É que conseguimos essa visualização.
+
+228
+00:10:46,010 --> 00:10:49,110
+E eu posso ver aqui todos esses valores numéricos comparados
+
+229
+00:10:49,110 --> 00:10:49,680
+um para o outro.
+
+230
+00:10:49,680 --> 00:10:53,480
+Agora, alguns deles são apenas uma massa de pontos em que estamos comparando.
+
+231
+00:10:53,480 --> 00:10:59,070
+Nesse caso, estamos comparando a altura à duração.
+
+232
+00:10:59,070 --> 00:11:01,130
+Então não há realmente nenhum tipo de relacionamento e
+
+233
+00:11:01,130 --> 00:11:02,720
+você não esperaria um relacionamento entre alguém
+
+234
+00:11:02,720 --> 00:11:05,160
+altura e por quanto tempo eles se exercitaram.
+
+235
+00:11:05,160 --> 00:11:07,740
+Existem algumas formas interessantes aqui eu posso ver que
+
+236
+00:11:07,740 --> 00:11:12,070
+há um tipo de linha diagonal aqui onde o peso parece ter
+
+237
+00:11:12,070 --> 00:11:16,208
+uma correlação com a altura, que faz sentido,
+
+238
+00:11:16,208 --> 00:11:18,260
+Alguém que é alto provavelmente pesará mais
+
+239
+00:11:18,260 --> 00:11:21,850
+Eu posso ver que há um tipo de relacionamento se formando lá.
+
+240
+00:11:21,850 --> 00:11:23,740
+E eu posso ver enquanto leio aqui.
+
+241
+00:11:23,740 --> 00:11:27,640
+Há uma relação aqui entre duração e
+
+242
+00:11:28,640 --> 00:11:29,500
+temperatura corporal.
+
+243
+00:11:29,500 --> 00:11:31,680
+E é uma espécie de relacionamento curvo.
+
+244
+00:11:31,680 --> 00:11:33,500
+É o que chamamos de não linear.
+
+245
+00:11:33,500 --> 00:11:35,620
+Não é uma linha reta que me dê esse relacionamento.
+
+246
+00:11:35,620 --> 00:11:38,003
+Parece ser uma espécie de curva.
+
+247
+00:11:38,003 --> 00:11:42,530
+Conforme o tempo passa, temos um conjunto de relacionamento mais curvo com
+
+248
+00:11:42,530 --> 00:11:43,940
+a temperatura do corpo.
+
+249
+00:11:43,940 --> 00:11:46,640
+E da mesma forma com a minha duração
+
+250
+00:11:46,640 --> 00:11:48,720
+calorias se se curvar para o outro lado.
+
+251
+00:11:48,720 --> 00:11:50,530
+Então, esses mesmos relacionamentos aqui não são exatamente
+
+252
+00:11:50,530 --> 00:11:54,000
+linear e eu poderia querer brincar com o dimensionamento e
+
+253
+00:11:54,000 --> 00:11:57,610
+a matemática de algumas dessas características numéricas para endireitar
+
+254
+00:11:57,610 --> 00:11:59,870
+as relações para torná-los mais fáceis de lidar.
+
+255
+00:11:59,870 --> 00:12:02,640
+Mas isso me dá uma boa visão geral do que os relacionamentos
+
+256
+00:12:02,640 --> 00:12:06,310
+estão entre os diferentes valores numéricos no meu conjunto de dados.
+
+257
+00:12:07,390 --> 00:12:10,210
+Então, quando eu visualizei tudo isso e voltei para o meu experimento e
+
+258
+00:12:10,210 --> 00:12:13,750
+continuar trabalhando com meus dados até que eu esteja pronto para limpá-lo
+
+259
+00:12:13,750 --> 00:12:16,420
+tudo, prepare tudo e construa um modelo de aprendizado de máquina.
+
+260
+00:12:16,420 --> 00:12:18,410
+E é disso que vamos falar a seguir.

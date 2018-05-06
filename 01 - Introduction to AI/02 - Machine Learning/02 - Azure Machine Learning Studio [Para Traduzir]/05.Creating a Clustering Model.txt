@@ -1,0 +1,260 @@
+0
+00:00:01,450 --> 00:00:04,350
+Então, como criamos um modelo de clustering no Azure ML?
+
+1
+00:00:06,573 --> 00:00:10,546
+Por isso, neste caso, tenho o meu Estúdio de Aprendizagem de Máquina do Azure
+
+2
+00:00:10,546 --> 00:00:14,519
+experimentar e eu vou estar olhando para as pessoas que vêm para
+
+3
+00:00:14,519 --> 00:00:16,830
+doar sangue na minha clínica de saúde.
+
+4
+00:00:16,830 --> 00:00:18,690
+Então, eu tenho dados de doação de sangue aqui.
+
+5
+00:00:18,690 --> 00:00:21,670
+Eu vou selecionar algumas colunas desse conjunto de dados.
+
+6
+00:00:21,670 --> 00:00:25,258
+Realmente, estou interessado apenas em como recentemente alguém tem sido
+
+7
+00:00:25,258 --> 00:00:28,373
+com que frequência eles vêm, se é algum tipo
+
+8
+00:00:28,373 --> 00:00:31,485
+de aspecto monetário para eles chegando para doar sangue e
+
+9
+00:00:31,485 --> 00:00:33,730
+Quantas vezes no total eles foram.
+
+10
+00:00:33,730 --> 00:00:36,563
+Eu vou normalizar esses valores numéricos
+
+11
+00:00:36,563 --> 00:00:38,789
+que eles estão todos na mesma escala, então
+
+12
+00:00:38,789 --> 00:00:42,304
+que não temos valores altos dominando o treinamento.
+
+13
+00:00:42,304 --> 00:00:44,600
+E então, estamos prontos para criar nosso cluster.
+
+14
+00:00:44,600 --> 00:00:47,542
+E o que eu realmente quero fazer é tentar descobrir se há algum tipo
+
+15
+00:00:47,542 --> 00:00:50,190
+de grupos dentro de meus doadores de sangue que são semelhantes?
+
+16
+00:00:50,190 --> 00:00:54,341
+E vou começar a usar o K-Means Clustering especificando
+
+17
+00:00:54,341 --> 00:00:58,170
+que eu quero criar três centróides ou três clusters,
+
+18
+00:00:58,170 --> 00:01:01,837
+se você gosta, e apenas ver eles quebram bem então em
+
+19
+00:01:01,837 --> 00:01:04,100
+três tipos diferentes de doador?
+
+20
+00:01:04,099 --> 00:01:07,438
+Então, eu vou treinar esse modelo de cluster usando todos
+
+21
+00:01:07,438 --> 00:01:08,950
+as características.
+
+22
+00:01:08,950 --> 00:01:12,010
+E então eu vou ver quais são os resultados.
+
+23
+00:01:12,010 --> 00:01:16,060
+Primeiro de tudo, basta olhar para os resultados que surgem disso.
+
+24
+00:01:16,060 --> 00:01:17,470
+Apenas visualize isso.
+
+25
+00:01:19,769 --> 00:01:21,825
+E eu posso ver que eu tenho a Recência, a Frequência,
+
+26
+00:01:21,825 --> 00:01:23,290
+os valores monetários e de tempo.
+
+27
+00:01:23,290 --> 00:01:24,960
+Estes são todos normalizados para que você possa vê-los todos lá.
+
+28
+00:01:24,960 --> 00:01:27,434
+E eu tenho a atribuição.
+
+29
+00:01:27,434 --> 00:01:30,790
+E esse é o cluster ao qual isso foi atribuído.
+
+30
+00:01:30,790 --> 00:01:32,367
+Então eu posso ver 1, 2, 2, 2, 2, 0.
+
+31
+00:01:32,367 --> 00:01:35,584
+Então, há três clusters e
+
+32
+00:01:35,584 --> 00:01:41,160
+estamos atribuindo a esses vários clusters.
+
+33
+00:01:41,160 --> 00:01:46,209
+Agora, o que eu realmente quero fazer é dar uma olhada nesta saída de
+
+34
+00:01:46,209 --> 00:01:51,130
+meu modelo de agrupamento de treinamento E
+
+35
+00:01:51,130 --> 00:01:54,873
+aqui eu recebo minha análise de componentes principais ou PCA e
+
+36
+00:01:54,873 --> 00:01:59,300
+basicamente vai me mostrar esses clusters usando esses tipos
+
+37
+00:01:59,300 --> 00:02:01,270
+de vetores escondidos aqui.
+
+38
+00:02:01,270 --> 00:02:03,954
+Então eu posso ver essas reticências que representam os clusters e
+
+39
+00:02:03,954 --> 00:02:06,692
+Eu tenho um tipo que é bastante alongado em pontos,
+
+40
+00:02:06,692 --> 00:02:09,450
+tipo de cima para baixo, é o tipo de vertical alinhado lá.
+
+41
+00:02:09,449 --> 00:02:13,214
+E então eu tenho um muito pequeno que parece estar alinhado
+
+42
+00:02:13,214 --> 00:02:14,147
+o outro jeito.
+
+43
+00:02:14,147 --> 00:02:17,339
+E então eu tenho esse grande tipo de vago
+
+44
+00:02:17,339 --> 00:02:20,680
+o meio, para que eles não fiquem muito claramente separados.
+
+45
+00:02:20,680 --> 00:02:23,659
+Parece haver uma enorme confusão sobre estes
+
+46
+00:02:23,659 --> 00:02:24,330
+clusters.
+
+47
+00:02:24,330 --> 00:02:27,371
+Então, não parece que eu consegui identificar três
+
+48
+00:02:27,371 --> 00:02:29,410
+clusters diferentes.
+
+49
+00:02:29,410 --> 00:02:31,164
+Então, vamos tentar isso com menos.
+
+50
+00:02:31,164 --> 00:02:34,662
+Vamos ver se pelo menos se divide em dois clusters diferentes
+
+51
+00:02:34,662 --> 00:02:37,660
+e nós vamos seguir em frente e executar o experimento novamente.
+
+52
+00:02:44,045 --> 00:02:47,786
+E quando terminar, vamos dar uma olhada novamente no PCA
+
+53
+00:02:47,786 --> 00:02:49,755
+que sai disso.
+
+54
+00:02:49,755 --> 00:02:51,712
+E desta vez existem dois clusters e
+
+55
+00:02:51,712 --> 00:02:53,015
+Eu posso ver que um deles
+
+56
+00:02:53,015 --> 00:02:56,110
+é meio orientado norte-sul, se você gosta ou verticalmente.
+
+57
+00:02:56,110 --> 00:02:58,481
+Então, nós temos esse tipo de elipse que aponta e
+
+58
+00:02:58,481 --> 00:02:59,150
+no caminho.
+
+59
+00:02:59,150 --> 00:03:02,211
+E então nós temos uma elipse quase ortogonal indo
+
+60
+00:03:02,211 --> 00:03:03,570
+do outro lado.
+
+61
+00:03:03,570 --> 00:03:05,334
+Então parece que se divide melhor em dois
+
+62
+00:03:05,334 --> 00:03:06,270
+clusters diferentes.
+
+63
+00:03:06,270 --> 00:03:09,111
+Parece que temos dois tipos diferentes de
+
+64
+00:03:09,111 --> 00:03:12,041
+tipos de pessoas que entram para doar sangue.
+

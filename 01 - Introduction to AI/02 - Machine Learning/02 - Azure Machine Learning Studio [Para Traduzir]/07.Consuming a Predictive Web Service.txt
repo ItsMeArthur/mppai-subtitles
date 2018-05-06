@@ -1,0 +1,580 @@
+0
+00:00:00,669 --> 00:00:02,669
+Depois que você implantou seu modelo como um serviço da web
+
+1
+00:00:02,740 --> 00:00:07,440
+Você pode consumir isso de um aplicativo cliente, então vamos dar uma olhada nisso. Então aqui
+
+2
+00:00:07,440 --> 00:00:11,939
+Eu estou no portal de serviços da web para meu serviço da web Predictor de diabetes
+
+3
+00:00:12,130 --> 00:00:18,299
+E eu quero consumir este serviço da web a partir de um aplicativo cliente agora. Eu poderia ir ao teste
+
+4
+00:00:18,850 --> 00:00:19,650
+página aqui
+
+5
+00:00:19,650 --> 00:00:24,150
+e basta digitar os valores são o que um teste para o meu meu paciente todos os seus detalhes e
+
+6
+00:00:24,279 --> 00:00:26,879
+Então vá em uma resposta get aqui no site
+
+7
+00:00:26,880 --> 00:00:31,470
+Mas obviamente eu quero consumi-lo de um aplicativo cliente real e fazer isso
+
+8
+00:00:31,470 --> 00:00:35,969
+Eu obtenho os detalhes nesta página de consumo, e eu poderia simplesmente abri-lo no excel imediatamente
+
+9
+00:00:36,250 --> 00:00:44,219
+Ou eu poderia usar esta informação aqui para se conectar ao serviço da web em toda a Internet
+
+10
+00:00:44,860 --> 00:00:46,140
+Então, o que temos?
+
+11
+00:00:46,140 --> 00:00:49,110
+Nós temos uma chave primária e uma chave secundária agora essas chaves são
+
+12
+00:00:49,450 --> 00:00:55,949
+Necessário quando nos conectamos através de uma conexão HTTP com o serviço da web, precisamos nos autenticar, portanto, um aplicativo cliente
+
+13
+00:00:56,050 --> 00:01:01,680
+Essa conexão passará uma dessas chaves como uma maneira de autenticar o serviço da Web
+
+14
+00:01:01,680 --> 00:01:04,830
+por isso precisamos de uma dessas chaves e também precisamos conhecer o
+
+15
+00:01:05,110 --> 00:01:11,069
+Ponto de extremidade de HTTP para o qual o cliente vai se conectar, ele se conectará pela Internet a este serviço da Web e teremos dois
+
+16
+00:01:11,229 --> 00:01:17,999
+possíveis pontos finais é que podemos usar este endpoint de resposta de pedido, caso em que para cada um dos
+
+17
+00:01:18,640 --> 00:01:21,119
+Pacientes que queremos obter detalhes para isso
+
+18
+00:01:21,119 --> 00:01:26,159
+Nós faremos uma solicitação e, em seguida, obteremos imediatamente uma resposta para esse paciente e isso poderá ser feito para vários pacientes
+
+19
+00:01:26,500 --> 00:01:29,970
+E obter uma resposta para cada um, fazendo um pedido e olhando para a resposta
+
+20
+00:01:31,119 --> 00:01:33,209
+alternativamente, se vamos estar lidando com um grande volume de
+
+21
+00:01:33,280 --> 00:01:37,739
+Os pacientes, e talvez no final do dia, recebemos dados coletados de muitos pacientes
+
+22
+00:01:37,740 --> 00:01:41,519
+Podemos fazer uma solicitação em lote e simplesmente enviar todos os pedidos de uma só vez e depois
+
+23
+00:01:42,790 --> 00:01:47,099
+Assincronamente, processe-os e recupere os resultados como um lote, para que possamos usar um desses
+
+24
+00:01:47,740 --> 00:01:51,570
+Endpoints, e ambos funcionam perfeitamente contra o nosso serviço web
+
+25
+00:01:51,970 --> 00:01:57,749
+Então, vamos colocar isso em teste e o que nós inicialmente vamos testar com o excel. Então eu tenho excel aberto aqui
+
+26
+00:01:58,299 --> 00:02:01,799
+E eu tenho alguns dados aqui para alguns pacientes, talvez durante o dia
+
+27
+00:02:01,840 --> 00:02:07,590
+Eu tenho usado o excel para registrar os detalhes do paciente, pois fizemos o ar que
+
+28
+00:02:07,899 --> 00:02:13,139
+Vários testes sobre eles e agora queremos executar estes dados através do nosso algoritmo de previsão para
+
+29
+00:02:13,410 --> 00:02:16,049
+Para saber se achamos ou não que este paciente está em risco de diabetes
+
+30
+00:02:16,900 --> 00:02:18,900
+Então, para fazer isso. Eu vou precisar
+
+31
+00:02:19,420 --> 00:02:23,820
+Conecte-se ao serviço da Web e para fazer isso. Eu vou usar um add-in não
+
+32
+00:02:23,920 --> 00:02:25,920
+Eu já tenho o add-in
+
+33
+00:02:26,020 --> 00:02:32,400
+Nos instalou o add-in de aprendizado de máquina azul aqui se você não tem que pode ir até a loja e pode
+
+34
+00:02:33,250 --> 00:02:36,270
+Encontre. É grátis e você pode simplesmente instalá-lo como um suplemento gratuito
+
+35
+00:02:36,820 --> 00:02:42,570
+Mas se eu vou ativar isso e aparece aqui em um painel à direita da minha pasta de trabalho
+
+36
+00:02:43,030 --> 00:02:49,380
+E há alguns serviços da Web que são exemplos de serviços da Web já fornecidos e posso adicionar um novo
+
+37
+00:02:49,510 --> 00:02:52,169
+Serviço da Web, e está me perguntando. Qual é a URL?
+
+38
+00:02:52,170 --> 00:02:58,470
+Qual é o ponto final ao qual você precisa se conectar para este serviço da Web e, agora, bem, recebemos essas informações aqui
+
+39
+00:02:58,470 --> 00:03:01,559
+Podemos usar a solicitação em lote ou a resposta da solicitação
+
+40
+00:03:02,470 --> 00:03:04,360
+Vamos supor que nossos
+
+41
+00:03:04,360 --> 00:03:06,300
+Clínica tem reunido dados durante todo o dia
+
+42
+00:03:06,300 --> 00:03:08,520
+Então podemos ter muitos registros
+
+43
+00:03:08,520 --> 00:03:15,029
+assim, usaremos nosso ponto de extremidade de solicitação em lote, que copiará isso para a área de transferência, e colamos isso aqui e
+
+44
+00:03:15,700 --> 00:03:20,790
+Então, também precisamos da chave de API que precisamos para nos autenticar contra o serviço da web, então novamente
+
+45
+00:03:20,790 --> 00:03:23,819
+Nós vamos voltar e podemos usar o primário da chave secundária
+
+46
+00:03:23,820 --> 00:03:29,489
+Não importa o que vamos copiar e depois colá-lo na nossa chave de api
+
+47
+00:03:29,590 --> 00:03:34,619
+Então esses são os dois bits de informação que precisamos para nos conectarmos ao serviço web, então vamos em frente e clique em adicionar
+
+48
+00:03:35,320 --> 00:03:39,570
+Em que adiciona o serviço web de previsão de diabetes e abre imediatamente
+
+49
+00:03:39,570 --> 00:03:43,139
+E eu posso ver algumas informações sobre isso agora antes de ir em frente e prever
+
+50
+00:03:43,140 --> 00:03:48,899
+Vamos ver apenas o esquema e podemos ver que, aqui, quais são os requisitos de entrada para o que é esperado
+
+51
+00:03:49,239 --> 00:03:56,549
+Pelo serviço da web quando passamos os IDs do paciente que esperam esses campos diferentes e ele retornará esses resultados
+
+52
+00:03:56,550 --> 00:04:00,630
+Vai devolver o paciente ao médico, a previsão do diabetes e a probabilidade
+
+53
+00:04:01,150 --> 00:04:05,610
+Então, parece que estávamos esperando, então nós temos o esquema lá agora
+
+54
+00:04:05,610 --> 00:04:08,760
+podemos ir em frente e usar isso por data e guia aqui e
+
+55
+00:04:09,340 --> 00:04:11,399
+Primeiro de tudo, precisamos dizer bem, onde está a entrada?
+
+56
+00:04:11,400 --> 00:04:15,330
+Onde está a entrada que corresponde a esse esquema de entrada e, na verdade, essas colunas estão aqui
+
+57
+00:04:15,330 --> 00:04:16,530
+Eu já os encontrei em minha pasta de trabalho
+
+58
+00:04:16,529 --> 00:04:18,370
+Então eu vou e seleciono aqueles que eu
+
+59
+00:04:18,370 --> 00:04:22,739
+Vai dizer que o que queremos usar como entrada e que inclui os cabeçalhos?
+
+60
+00:04:22,740 --> 00:04:25,590
+Também temos os cabeçalhos das colunas. Então, tudo pronto para ir
+
+61
+00:04:26,520 --> 00:04:30,930
+E então nós precisaríamos colocar a saída em algum lugar quando faz sentido colocá-la ao lado dos dados
+
+62
+00:04:30,930 --> 00:04:35,639
+que é a entrada para que J1 pareça ser um lugar sensato, então nós vamos
+
+63
+00:04:36,580 --> 00:04:41,039
+Especifique isso e ele colocará a saída lá começando em J1 e incluirá novamente os cabeçalhos
+
+64
+00:04:41,740 --> 00:04:42,990
+Então, estamos prontos para ir agora
+
+65
+00:04:42,990 --> 00:04:44,310
+Podemos apenas ir em frente e clicar em prever
+
+66
+00:04:44,310 --> 00:04:51,149
+E ele vai chamar meu serviço da web por meio do htTP e, em seguida, obtém os resultados rapidamente nesse caso
+
+67
+00:04:51,550 --> 00:04:58,050
+onde eu posso ver o paciente id o médico a probabilidade de diabetes um ou um zero e
+
+68
+00:04:58,360 --> 00:05:05,130
+A probabilidade contra esse valor para que possamos ver um no excel de qualquer maneira
+
+69
+00:05:05,130 --> 00:05:10,409
+É bastante fácil usar este suplemento para se conectar ao meu serviço da Web e consumi-lo e, se eu fosse
+
+70
+00:05:10,659 --> 00:05:15,419
+Clínica de saúde que testa pessoas para diabetes que pode ser uma maneira sensata de fazer isso. Eu já poderia usar o excel
+
+71
+00:05:15,419 --> 00:05:19,709
+Eu só uso isso para gravar os dados de teste do paciente e depois enviar para o serviço da web
+
+72
+00:05:20,470 --> 00:05:24,690
+Mas e se eu quisesse criar um aplicativo personalizado e se eu não quisesse usar o Excel?
+
+73
+00:05:24,690 --> 00:05:29,999
+Eu quero talvez. Que tal um site ou outro aplicativo personalizado que usa meu serviço da web?
+
+74
+00:05:30,490 --> 00:05:34,500
+Bem, eu posso fazer isso também. Se eu voltar ao meu portal de serviço da web aqui e
+
+75
+00:05:35,349 --> 00:05:42,299
+Abaixo das informações básicas de consumo, há um exemplo de código aqui, e você pode ver alguns códigos C-sharp neste python
+
+76
+00:05:42,300 --> 00:05:43,780
+Na verdade, é código python 2
+
+77
+00:05:43,780 --> 00:05:45,780
+Há um python 3
+
+78
+00:05:45,940 --> 00:05:49,320
+Código lá também, e há o nosso código para idiomas que são comumente usados
+
+79
+00:05:50,169 --> 00:05:52,169
+ao trabalhar com
+
+80
+00:05:52,270 --> 00:05:58,409
+Tecnologias de tamanho de dados ou trabalhando na plataforma Microsoft você pode ver que temos um exemplo chamado lá, e que é específico para o meu
+
+81
+00:05:58,990 --> 00:06:02,310
+Meu serviço web para que eu pudesse, por exemplo
+
+82
+00:06:02,949 --> 00:06:06,598
+use python 3 para criar um notebook que vai e
+
+83
+00:06:07,330 --> 00:06:12,930
+Conecta-se ao meu serviço da web e usa-o e para fazer isso em vez de usar o serviço do Notebook no Azure Machine learning
+
+84
+00:06:13,419 --> 00:06:19,829
+Eu vou apresentá-lo a algo chamado o serviço de notebooks do Microsoft Azure agora. Este é um serviço independente
+
+85
+00:06:19,830 --> 00:06:26,159
+É separado do aprendizado de máquina azul. É apenas uma maneira de postar ambientes nos quais você pode executar os notebooks da Jupyter
+
+86
+00:06:26,400 --> 00:06:28,400
+você não precisa de um anúncio seu
+
+87
+00:06:28,479 --> 00:06:34,619
+Assinatura de que você não precisa de um computador azul e de máquina que aprende um espaço de trabalho que você acabou de usar para trabalhar com notebooks e trabalhar com dados
+
+88
+00:06:35,469 --> 00:06:38,399
+então, neste caso, eu já assinei e posso ver meu
+
+89
+00:06:39,139 --> 00:06:40,249
+Minha página de perfil aqui
+
+90
+00:06:40,249 --> 00:06:45,199
+e eu posso ver que você tem essas bibliotecas efetivamente pastas de notebooks que você deseja trabalhar e
+
+91
+00:06:45,419 --> 00:06:51,288
+O que eu vou fazer é ver todas as minhas bibliotecas, e eu vou criar uma nova biblioteca aqui
+
+92
+00:06:51,289 --> 00:06:52,979
+Então, aqui está uma nova biblioteca
+
+93
+00:06:52,979 --> 00:06:54,979
+Que nós chamaremos
+
+94
+00:06:56,310 --> 00:06:58,310
+clínica de diabetes
+
+95
+00:06:59,279 --> 00:07:04,369
+E ele precisa ter um URL exclusivo para o caso de eu querer compartilhá-lo com as pessoas.
+
+96
+00:07:04,370 --> 00:07:07,219
+Nós vamos apenas colocar clínica de diabetes e lá também
+
+97
+00:07:07,919 --> 00:07:08,969
+Vou corrigir esse erro de digitação
+
+98
+00:07:08,969 --> 00:07:14,629
+E nós podemos fornecer uma descrição. Eu poderia tornar público neste caso. Irei torná-lo privado
+
+99
+00:07:15,150 --> 00:07:17,150
+Porque eu estou fazendo uma pessoa vai usá-lo
+
+100
+00:07:17,819 --> 00:07:23,899
+E lá vai e cria essa biblioteca abre clínica de diabetes, e eu estou pronto para criar um notebook nessa biblioteca
+
+101
+00:07:24,659 --> 00:07:26,718
+Então, vou em frente e inscrevo um novo bloco de anotações
+
+102
+00:07:27,360 --> 00:07:30,050
+que eu vou chamar de diabetes e
+
+103
+00:07:31,080 --> 00:07:36,589
+A língua que eu quero usar Eu tenho uma escolha de diferentes idiomas, e eu vou usar o Python 3.6 neste caso
+
+104
+00:07:37,439 --> 00:07:40,069
+então, vamos em frente e clicamos em novas e
+
+105
+00:07:40,740 --> 00:07:46,129
+vai e cria o meu caderno de diabetes lá para que eu possa abrir isso e
+
+106
+00:07:47,250 --> 00:07:50,719
+Isso gera um servidor de notebook no qual ele vai lançar meu notebook
+
+107
+00:07:50,719 --> 00:07:55,669
+E então devemos estar em um território razoavelmente familiar, isso parece muito semelhante ao jupyter em todos os livros
+
+108
+00:07:55,669 --> 00:08:02,478
+Nós trabalhamos com e como o seu aprendizado de máquina e se o escritor é o mesmo ambiente de jupiter acaba de ser hospedado neste standalone separado
+
+109
+00:08:02,610 --> 00:08:04,610
+Serviço de notebook e azure
+
+110
+00:08:04,800 --> 00:08:06,949
+Então, o que vou fazer com isso?
+
+111
+00:08:06,949 --> 00:08:12,889
+Vou voltar para o meu código de serviços da Web aqui e tenho o código do python 3 disponível para mim aqui
+
+112
+00:08:12,889 --> 00:08:15,588
+então vamos lá e copiá-lo para a área de transferência e
+
+113
+00:08:16,439 --> 00:08:18,619
+se eu voltar para o meu notebook eu posso então
+
+114
+00:08:19,349 --> 00:08:23,028
+Cole isso aqui, então o que esse código me forneceu. Está indo
+
+115
+00:08:23,879 --> 00:08:28,009
+Use esta solicitação de lib de url que vai fazer uma conexão de url
+
+116
+00:08:28,009 --> 00:08:33,499
+Está indo para se conectar ao htTP e enviaremos os dados para trás e para frente em um formato chamado JSon
+
+117
+00:08:34,140 --> 00:08:36,199
+Então, nós teremos essa biblioteca JSon também
+
+118
+00:08:36,328 --> 00:08:41,029
+nós configuramos nossas entradas e eu voltarei a elas em um segundo, mas nós configuramos os parâmetros de entrada e
+
+119
+00:08:41,578 --> 00:08:44,119
+Então nós codificamos isso como um documento jSon
+
+120
+00:08:44,910 --> 00:08:50,959
+Esse será o corpo da nossa solicitação para nos conectarmos a esse URL. Essa é a URL do ponto final para o meu
+
+121
+00:08:51,790 --> 00:08:58,570
+serviço e precisamos nos conectar passando a chave da API que é passada e o cabeçalho da nossa solicitação e você verá
+
+122
+00:08:58,570 --> 00:09:04,329
+Que não foi comprovado por motivos de segurança. Não foi copiado, então eu preciso voltar para
+
+123
+00:09:05,090 --> 00:09:06,110
+meu
+
+124
+00:09:06,110 --> 00:09:11,409
+Consumir página e ir buscar a chave que eu poderia usar novamente o primário ou o secundário
+
+125
+00:09:12,020 --> 00:09:14,020
+então vamos substituir isso e
+
+126
+00:09:14,720 --> 00:09:19,750
+ABC123 com meu valor de chave real que é passado no cabeçalho
+
+127
+00:09:19,750 --> 00:09:24,729
+E então nós fazemos esse pedido apenas uma solicitação da web regular sobre a passagem de htTP
+
+128
+00:09:25,280 --> 00:09:27,310
+O corpo que será o Jason
+
+129
+00:09:27,890 --> 00:09:32,470
+documento contendo todos os meus dados de pacientes e os cabeçalhos que inclui a minha chave e
+
+130
+00:09:33,140 --> 00:09:39,100
+Então, isso vai acontecer e enviar uma resposta e a resposta que voltará. Nós vamos ler
+
+131
+00:09:39,100 --> 00:09:43,300
+É novamente um documento jSon, e a menos que o cabeçalho tenha acontecido
+
+132
+00:09:43,300 --> 00:09:48,519
+Nós vamos ser capazes de ler isso e decodificá-lo e apenas exibir os resultados aqui no meu caderno
+
+133
+00:09:48,520 --> 00:09:51,520
+Por isso, é bastante simples fazer uma solicitação de hTTP
+
+134
+00:09:51,920 --> 00:09:56,440
+Passando esses parâmetros agora os parâmetros aqui não são particularmente úteis um paciente
+
+135
+00:09:56,440 --> 00:10:03,309
+Id um ano de idade não é realmente muito útil, por isso vamos substituir aqueles com alguns valores que são realmente um pouco mais úteis
+
+136
+00:10:03,740 --> 00:10:11,469
+Então, nós temos alguns dados reais de pacientes que podem ser um pouco mais significativos, e eu irei em frente e apenas executarei esse acorde
+
+137
+00:10:13,910 --> 00:10:17,800
+E nós fazemos o pedido hTTP que nós voltamos é um adjacente
+
+138
+00:10:18,320 --> 00:10:23,199
+documento, de modo que, aqui, esse indicador indica o início de nossos resultados e, então,
+
+139
+00:10:23,810 --> 00:10:26,589
+Saída, mas o importante é conseguirmos o ID do paciente
+
+140
+00:10:26,930 --> 00:10:33,909
+O médico a previsão do diabetes, neste caso, é 1 e a probabilidade de que vai com essa previsão
+
+141
+00:10:33,910 --> 00:10:35,780
+para que possamos
+
+142
+00:10:35,780 --> 00:10:41,500
+Muito facilmente juntar algum código para chamar o nosso serviço web e, obviamente, poderíamos então adaptar este código e construir um costume
+
+143
+00:10:41,810 --> 00:10:43,810
+aplicativo que chama nosso serviço da web
+
+144
+00:10:44,120 --> 00:10:50,440
+Sobre HTTP e obter bicicleta lá nossa previsão para que pudéssemos fazer algo com eles em um aplicativo personalizado
+
